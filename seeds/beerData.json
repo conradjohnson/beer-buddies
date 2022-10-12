@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Big IPA Dank",
+        "type": "Double IPA"
+    },
+    {
+        "name": "Larry's Pilsner Yello",
+        "type": "Pilsner"
+    },
+    {
+        "name": "Hefty Visen",
+        "type": "Hefeweizen"
+    },
+    {
+        "name": "Shiner Bock",
+        "type": "Bock"
+    },
+    {
+        "name": "Coors",
+        "type": "American Pilsner"
+    }
+  ]
