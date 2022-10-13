@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post, Comment } = require('../models');
+const { User, Post, Comment, Beerlist, Beer } = require('../models');
 const withAuth = require('../utils/auth');
 
 
@@ -65,25 +65,24 @@ router.get('/dashboard', withAuth, async (req, res) => {
       // Find the logged in user based on the session ID
       const userData = await User.findByPk(req.session.user_id, {
         attributes: { exclude: ['password'] },
-        include: [{ model: Post }],
+        include: [{ include:[Comment], model: Post }],
       });
-  
       const user = userData.get({ plain: true });
       const userId = user.id;
-      console.log(userId);
-      const postData = await Post.findAll({
-        where: {
-            user_id:user.id,
-        },
-        order: [['title', 'ASC']],
-      });
-  
-      const posts = postData.map((post) => post.get({ plain: true }));
       
-      console.log(user);
+      const beerListData = await Beerlist.findAll({ 
+        where:{user_id: userId},
+        include:{model:Beer}
+      })
+      
+      const beersList = beerListData.map((beerlist) => beerlist.get({ plain: true }));
+      console.log(beersList);
+     // console.log(userId);
+          
+     // console.log(user);
       res.render('dashboard', {
         ...user,
-       posts,
+        beersList,
        logged_in: req.session.logged_in
       });
     } catch (err) {
