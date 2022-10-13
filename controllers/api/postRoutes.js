@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 async function getUserName(userId){
     const userData = await User.findOne({ where: { id: userId } });
     const user = userData.get({ plain: true });
-    return user.name;
+    return user.username;
 }
 
 router.post('/', withAuth, async (req, res) => {

@@ -16,7 +16,17 @@ Beer.init(
       },
       type: {
           type: DataTypes.STRING,
+      },
+      brewery: {
+        type: DataTypes.STRING,
+      },
+      brewloc: {
+        type: DataTypes.STRING,
+      },
+      abv: {
+        type: DataTypes.STRING,
       }
+
     },
     {
       sequelize,

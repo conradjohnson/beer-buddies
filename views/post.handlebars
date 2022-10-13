@@ -1,0 +1,8 @@
+post stuff here!
+<h4>{{post.title}}</h4>
+<span>
+{{post.body}}
+</span>
+{{#each post.comments as |comment| }}
+       <div style="border:1px solid #000; background-color:#999"> {{comment.body}}</div>
+{{/each}}
