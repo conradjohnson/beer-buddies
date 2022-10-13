@@ -24,6 +24,29 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    address1: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: ""
+    },
+    address2: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "",
+    },
+    city: {
+      type: DataTypes.STRING,
+      defaultValue: "",
+    },
+    state: {
+      type: DataTypes.STRING,
+      defaultValue: "",
+    },
+    zip: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "",
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
