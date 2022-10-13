@@ -2,6 +2,11 @@
   {
     "name": "Sal the Arbitratian",
     "email": "sal@hotmail.com",
+    "address1" : "3109 Clearpoint Dr",
+    "address2" : "",
+    "city" : "Flower Mound",
+    "state" : "TX",
+    "zip" : "75022",
     "username": "salarb",
     "password": "sal"
   },

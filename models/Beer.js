@@ -15,7 +15,7 @@ Beer.init(
         allowNull: false,
       },
       type: {
-          type: DataTypes.TEXT,
+          type: DataTypes.STRING,
       }
     },
     {
