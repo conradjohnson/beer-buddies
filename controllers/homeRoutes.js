@@ -91,6 +91,40 @@ router.get('/dashboard', withAuth, async (req, res) => {
   });
 
 
+// Profile Route
+router.get('/profile/:username',  async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findOne( {
+      where:{username: req.params.username},
+      attributes: { exclude: ['password'] },
+      include: [{ include:[Comment], model: Post }],
+    });
+    console.log("query result" + userData);
+    const user = userData.get({ plain: true });
+    console.log(user);
+    const userId = user.id;
+    
+    const beerListData = await Beerlist.findAll({ 
+      where:{user_id: userId},
+      include:{model:Beer}
+    })
+    
+    const beersList = beerListData.map((beerlist) => beerlist.get({ plain: true }));
+    console.log(beersList);
+    console.log("userid:" + userId);
+        
+   // console.log(user);
+    res.render('profile', {
+      ...user,
+      beersList,
+     logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
   
 router.get('/login', (req, res) => {
   // if user is already logged in, send them back to homepage.
