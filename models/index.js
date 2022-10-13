@@ -10,16 +10,16 @@ User.hasMany(Post, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
   });
-Beerlist.hasMany(Beer,{
+Beer.hasMany(Beerlist, {
     foreignKey: 'beer_id',
     onDelete: 'CASCADE'
-});
+  });
 Post.hasMany(Comment, {
     foreignKey: 'post_id',
     onDelete: 'CASCADE'
   });
-Beerlist.belongsTo(User,{
-    foreignKey: 'user_id'
+Beerlist.belongsTo(Beer,{
+    foreignKey: 'beer_id'
 });
 Post.belongsTo(User, {
     foreignKey: 'user_id'
