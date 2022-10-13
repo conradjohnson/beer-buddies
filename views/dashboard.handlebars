@@ -1,1 +1,16 @@
 dash stuff here
+
+{{#each posts as |post|}}
+{{../name}}
+<h4>{{post.title}}</h4>
+<p>{{post.body}}</p>
+    {{#each comments as |comment| }}
+        {{comment.body}}
+    {{/each}}
+{{/each}}
+
+{{#each beersList as |drink| }}
+   <p> {{drink.id}} {{drink.beer.name}} - {{drink.beer.type}} - is drank: {{drink.drank}}</p>
+   
+    
+{{/each}}
