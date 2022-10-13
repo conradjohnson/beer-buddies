@@ -3,7 +3,7 @@ dash stuff here
 {{#each posts as |post|}}
 {{../name}}
 <h4>{{post.title}}</h4>
-<p>{{post.body}}</p>
+<p>{{{post.body}}}</p>
     {{#each comments as |comment| }}
        <div style="border:1px solid #000; background-color:#999"> {{comment.body}}</div>
     {{/each}}
