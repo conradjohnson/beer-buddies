@@ -2,16 +2,18 @@
 {{#each posts as |post|}}
   <h4>{{post.title}}</h4>
   <p>{{post.body}}</p>
-  <span>Comment loop here</span>
+  {{#each post.comments as |comment|}}
+    {{comment.body}}
+    {{comment.author}}
+    {{comment.date_created}}
+  {{/each}}
 {{/each}}
+
 
 <h2>BeerleaderBoard</h2>
-<span> TBC</span>
-
-<h2>Users Objects</h2>
-{{#each users as |user|}}
-  {{user.username}}
+{{#each leaderboardList as |listitem|}}
+  {{{add_one @index}}}{{listitem.user}} {{listitem.drank_beers}}/{{listitem.total_beers}}
 {{/each}}
-
+<span></span>
 
 

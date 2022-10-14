@@ -14,12 +14,19 @@ Beer.hasMany(Beerlist, {
     foreignKey: 'beer_id',
     onDelete: 'CASCADE'
   });
+User.hasMany(Beerlist, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+  });
 Post.hasMany(Comment, {
     foreignKey: 'post_id',
     onDelete: 'CASCADE'
   });
 Beerlist.belongsTo(Beer,{
     foreignKey: 'beer_id'
+});
+Beerlist.belongsTo(User,{
+  foreignKey: 'user_id'
 });
 Post.belongsTo(User, {
     foreignKey: 'user_id'

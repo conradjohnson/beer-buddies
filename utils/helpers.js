@@ -20,6 +20,9 @@ module.exports = {
     let newDate = moment(dateToFormat).format('M-D-YYYY');
     return newDate;
   },
+  add_one: (numSent)=>{
+    return (numSent+1);
+  }
 
   
 };
