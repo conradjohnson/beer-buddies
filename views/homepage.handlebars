@@ -1,19 +1,48 @@
-<h2>Posts:</h2>
-{{#each posts as |post|}}
-  <h4>{{post.title}}</h4>
-  <p>{{post.body}}</p>
-  {{#each post.comments as |comment|}}
-    {{comment.body}}
-    {{comment.author}}
-    {{comment.date_created}}
-  {{/each}}
-{{/each}}
 
+<section class="section">
+      <div class="container">
+        <h1 class="is-size-1 has-text-centered" id="title">Beer Buddies</h1>
+        <p class="subtitle is-italic has-text-centered pb-5" id="title">
+          Connect with nearby beer enthusiasts!
+        </p>
+      </div>
 
-<h2>BeerleaderBoard</h2>
-{{#each leaderboardList as |listitem|}}
-  {{{add_one @index}}}{{listitem.user}} {{listitem.drank_beers}}/{{listitem.total_beers}}
-{{/each}}
-<span></span>
+      <div class="columns is-mobile">
+        <div class="column is-two-thirds mr-5 border">
+          <h1 class="is-size-3 blog">Beer Blog</h1>
+          <hr />
+          {{#each posts as |post|}}
+          <div class="post">
+            <p>
+              {{post.author}} - {{post.body}}
+            </p>
+          </div>
+            {{#each post.comments as |comment|}}
+          <div class="comment ml-6 mr-6">
+            <p>
+              {{comment.author}} - {{comment.body}}
+            </p>
+          </div>
+            {{/each}}
+          <a href="" class="addComment">Add Comment</a>
+          {{/each}}
+          
+          
+        </div>
 
-
+        <div class="column border">
+          <h1 class="is-size-3 checklist">Beer Checklist Leaderboard</h1>
+          <hr />
+          <ol class="leaderboard ml-6 checklist">
+            {{#each leaderboardList as |listitem|}}
+              {{setVariable "rank" (add_one @index)}}
+              {{setVariable "1st" (is_one rank)}}
+              <li id="{{#if 1st}}topDog{{/if}}">{{listitem.user}} - {{listitem.drank_beers}}/{{listitem.total_beers}}</li>
+            {{/each}}
+           <!-- <li id="secondDog">James Johnson - 11/18</li>
+            <li id="thirdDog">Austin Moore - 10/18</li> -->
+            
+          </ol>
+        </div>
+      </div>
+    </section>
