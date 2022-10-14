@@ -1,0 +1,72 @@
+body {
+  background-color: rgb(29, 29, 29);
+}
+.navbar {
+  background-color: rgb(255, 189, 56);
+}
+#title {
+  color: white;
+}
+.border {
+  border-style: solid;
+  border-width: 1px;
+  border-color: gray;
+  border-radius: 8px;
+  height:auto;
+}
+.profileInfo {
+  color: white;
+  text-align: center;
+}
+
+hr {
+  height: 1px;
+  border-width: 0;
+  background-color: rgb(255, 255, 255);
+}
+.pic {
+  margin-left: 75px;
+}
+.userName {
+  color: white;
+  text-align: center;
+  margin-left:50px;
+  margin-top: 20px;
+
+}
+.favBeers{
+    color:white;
+    margin-left:50px;
+    margin-top: 15px;
+}
+.favBeersItems {
+  color: white;
+  margin-left: 50px;
+  text-align:left;
+}
+.beerList{
+margin-left:auto;
+margin-right:auto;
+}
+.blog{
+  color:white;
+  text-align: center;
+}
+.post{
+  background-color: rgb(255, 189, 56);
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: rgb(0, 0, 0);
+  padding: 15px;
+}
+.comment{
+  background-color: rgb(255, 243, 139);
+}
+.navbar2 {
+  background-color: rgb(255, 189, 56);
+  overflow: hidden;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 0px;
+}

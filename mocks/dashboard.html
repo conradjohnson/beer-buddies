@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Beer Buddies Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+
+  <body>
+    <nav class="navbar has-shadow">
+      <!--logo / brand-->
+      <div class="navbar-brand">
+        <a class="navbar-item">
+          <img
+            src="img/beer.png"
+            alt="site logo"
+            style="max-height: 60px"
+            class="py-2 px-2"
+          />
+        </a>
+      </div>
+      <div class="navbar-menu is-active">
+        <div class="navbar-end">
+          <a class="navbar-item">My Dashboard</a>
+          <a class="navbar-item">Blog Posts</a>
+          <a class="navbar-item">Log In/Sign Up</a>
+        </div>
+      </div>
+    </nav>
+    <section class="section">
+      <div class="container">
+        <div class="border">
+          <h1 class="is-size-3 has-text-center profileInfo">Profile Info</h1>
+          <hr />
+          <div class="columns">
+            <div class="column">
+              <img
+                src="img/me.jpg"
+                alt="profile pic"
+                style="max-height: 200px"
+                class="pic"
+              />
+            </div>
+            <div class="column">
+              <h3 class="is-size-4 userName">Name: Austin Moore</h3>
+              <h3 class="is-size-4 userName">Username: Funky Brewster</h3>
+              <h3 class="is-size-4 userName">Hometown: Dallas</h3>
+            </div>
+            <div class="column favBeers">
+              <ul class="is-size-4 favBeers">
+                Favorite Beers:
+              </ul>
+              <li class="is-size-4 favBeersItems">Juicy Haze IPA</li>
+              <li class="is-size-4 favBeersItems">Any Pumpkin Beer</li>
+              <li class="is-size-4 favBeersItems">Free Beer</li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+            <h1 class="is-size-3 myStuff">
+              My Stuff
+            </h1>
+            <div class="tabs is-centered">
+                <ul class="tabs">
+                  <li><a class="button" id="clButton">Beer Checklist</a></li>
+                  <li><a class="button" id="lpButton">Latest Posts</a></li>
+                  <li><a class="button" id="lbButton">Leaderboard</a></li>
+                </ul>
+              </div>
+              <div id = "beerChecklist">checklist</div>
+              <div id="beerLeaderboard" class="hidden">leaderboard</div>
+              <div id="latestPosts" class="hidden">posts</div>
+    </section>
+    <footer class="navbar2">
+      <div class="navbar-start">
+        <a class="navbar-item">Contact Us</a>
+        <a class="navbar-item">Copyright Beer Buddies LLC</a>
+      </div>
+    </footer>
+  </body>
+</html>
