@@ -1,47 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Beer Buddies</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beer Buddies</title>
-  
-   
-</head>
-
-<body>
-  <div class="flex-column justify-space-around">
-    <header class="">
-      <h1 class="display-flex w-100 justify-center align-center p-2 mt-4">
-        <span role="img">🍺</span>
-        <a href="/">&nbsp;&nbsp;Beer Buddies&nbsp;&nbsp;</a>
-         <span role="img">🍻</span>
-      </h1>
-      <div class="display-flex w-100 justify-center p-2">
-        <nav class="display-flex align-center p-2">
-          <!-- Conditionally render login or logout links -->
-          {{#if logged_in}}
-          <a href="/dashboard" class="mr-2">profile dash</a> | 
-          <button class="no-button" id="logout" class="ml-4">logout</button>
-          {{else}}
-          <a href="/login">login</a>
-          {{/if}}
-        </nav>
+  <body>
+    <nav class="navbar has-shadow">
+      <!--logo / brand-->
+      <div class="navbar-brand">
+        <a class="navbar-item">
+          <img
+            src="img/beer.png"
+            alt="site logo"
+            style="max-height: 60px"
+            class="py-2 px-2"
+          />
+        </a>
       </div>
-    </header>
+      <div class="navbar-menu is-active">
+        <div class="navbar-end">
+          {{#if logged_in}}<a class="navbar-item">My Dashboard</a>{{/if}}
+          <a class="navbar-item">{{#if logged_in}}<button class="no-button" id="logout" class="ml-4">logout</button>{{else}}
+          <a href="/login">Log In/Sign Up</a>
+          {{/if}}
+        </div>
+      </div>
+    </nav>
+
+
+
+
+
+
+
+
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}
-    </main>
-    <footer>
-      
-    </footer>
-  </div>
-
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
+      {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
-</body>
-
+  </main>
+   <div class="navbar2">
+      <div class="navbar-start">
+        <a class="navbar-item">Contact Us</a>
+        <a class="navbar-item">Copyright Beer Buddies LLC</a>
+      </div>
+    </div>
+  </body>
 </html>
+
+
+  

@@ -20,6 +20,21 @@ module.exports = {
     let newDate = moment(dateToFormat).format('M-D-YYYY');
     return newDate;
   },
+  add_one: (numSent)=>{
+    return (numSent+1);
+  },
+  is_one:(num)=>{
+    return (num===1);
+  }, 
+  is_two:(num)=>{
+    return (num===2);
+  },
+  is_three:(num)=>{
+    return (num===3);
+  },
+  setVariable: (varName, varValue, options)=>{
+    options.data.root[varName] = varValue;
+  },
 
   
 };
