@@ -9,15 +9,54 @@ const withAuth = require('../utils/auth');
 // if it is set to true, it allows the request to proceed to our async function. 
 router.get('/',  async (req, res) => {
   try {
+    
+    // get posts data
     const postData = await Post.findAll({
       order: [['title', 'ASC']],
-      inclue:[{model: User}],
+      inclue:[{model: Comment}],
     });
-    
     const posts = postData.map((post) => post.get({ plain: true }));
     console.log(posts);
+
+    //get beerleader board data.
+    // needs more intelligence to count of checked functionality grouped by user to limit the user object.
+    const beerLeaderboardData = await Beerlist.findAll({
+      order:[['user_id', 'ASC'], ['beer_id', 'ASC']],
+      
+    })
+    const beerLeaderboard = beerLeaderboardData.map((blb) => blb.get({plain: true}));
+    console.log(beerLeaderboard);
+
+    // get user information for the page.
+    // let's get a list of user_ids that we'll use to query.
+    // ... we'll get users from the post data and the beer leaderboard
+    const userArray = [];
+    
+    // first from the posts:
+    for (let i=0; i<posts.length; i++){
+      userArray.push(posts[i].user_id);
+    }
+    
+    // next from the beer leaderboard
+    for (let i=0; i<beerLeaderboard.length; i++){
+            userArray.push(beerLeaderboard[i].user_id);
+    }
+    //remove duplicates
+    const uniqueUserArray = [...new Set(userArray)];
+    
+   
+    // find based on our dataset.
+    const userData = await User.findAll({
+      where: {
+        id: uniqueUserArray,
+      }
+    })
+    const users = userData.map((user)=> user.get({plain:true}));
+   
+
+    // render homepage
     res.render('homepage', {
-      posts,
+      posts, beerLeaderboard, users,
       // this will tell the homepage the users object and the logged_in value of the 
       // req.session.logged_in tag. 
       logged_in: req.session.logged_in,

@@ -1,7 +1,17 @@
-<!-- Loop over each object in the projects array -->
-<div class="row mb-4 project">
-  <div class="col-md-5">
-    <h2> Here is the NEW homepage!</h2>
-  </div>
-</div>
+<h2>Posts:</h2>
+{{#each posts as |post|}}
+  <h4>{{post.title}}</h4>
+  <p>{{post.body}}</p>
+  <span>Comment loop here</span>
+{{/each}}
+
+<h2>BeerleaderBoard</h2>
+<span> TBC</span>
+
+<h2>Users Objects</h2>
+{{#each users as |user|}}
+  {{user.username}}
+{{/each}}
+
+
 
