@@ -11,10 +11,11 @@ router.get('/',  async (req, res) => {
   try {
     const postData = await Post.findAll({
       order: [['title', 'ASC']],
+      inclue:[{model: User}],
     });
-
+    
     const posts = postData.map((post) => post.get({ plain: true }));
-
+    console.log(posts);
     res.render('homepage', {
       posts,
       // this will tell the homepage the users object and the logged_in value of the 
