@@ -1,13 +1,39 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Beer, Beerlist } = require('../../models');
 
 router.post('/', async (req, res) => {
   console.log('new user attempt! name:' + req.body.name);
   try {
     
-    const newUser = await User.create(req.body);
+    const newUserData = await User.create(req.body);
+    const newUser = newUserData.get({plain: true});
+    console.log('user created!')
+    //create beer checklist for user.
+    const beersData = await Beer.findAll({
+      order: [['id', 'ASC']],
+    });
+    const beers = beersData.map((beer) => beer.get({ plain: true }));
    
-    res.status(200).json(newUser);
+    console.log(beers);
+    const beerList = [];
+    let beerListItem = {};
+    for (let i = 0; i < beers.length; i++ ){
+      beerListItem = {
+        user_id : newUser.id,
+        beer_id : beers[i].id
+      }
+      beerList.push(beerListItem);
+    }
+    console.log(beerList);
+    const newBeerList = await Beerlist.bulkCreate(beerList);
+    req.session.save(() => {
+      req.session.user_name = newUser.name;
+      req.session.user_id = newUser.id;
+      req.session.logged_in = true;
+      
+      res.status(202).json({ user: newUser, message: 'User Created and logged in!' });
+    });
+   
     
     
   } catch (err) {

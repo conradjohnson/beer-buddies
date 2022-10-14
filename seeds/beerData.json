@@ -1,22 +1,137 @@
 [
     {
+        "name": "Cider Donut Hard Cider",
+        "type": "Hard Cider",
+        "brewloc": "Lafayette, NY",
+        "brewery": "Beak & Skiff Apple Orchards",
+        "abv": "6.9%"
+    },
+    {
+        "name": "Fig Hard Cider",
+        "type": "Hard Cider",
+        "brewloc": "Saint Petersburg, FL",
+        "brewery": "3 Daughters Brewing",
+        "abv": "5.5%"
+    },
+    {
+        "name": "Oktoberfest Marzen",
+        "type": "Marzen",
+        "brewloc": "Munich, Germany",
+        "brewery": "Paulaner Brauerei",
+        "abv": "5.8%"
+    },
+    {
+        "name": "Spaten Oktoberfestbier",
+        "type": "Marzen",
+        "brewloc": "Munchen, Germany",
+        "brewery": "Spaten-Franziskaner-Brau",
+        "abv": "5.9%"
+    },
+    {
+        "name": "Voodoo Ranger Atomic Pumpkin",
+        "type": "Ale",
+        "brewloc": "Fort Collins, CO",
+        "brewery": "New Belgium",
+        "abv": "6.4%"
+    },
+    {
+        "name": "Sweet Potato Casserole Strong Ale",
+        "type": "Ale",
+        "brewloc": "Oakland Park, FL",
+        "brewery": "Funky Buddha Brewery" ,
+        "abv": "7.9%"
+    },
+    {
+        "name": "World on a String",
+        "type": "Amber",
+        "brewloc": "Portland, ME",
+        "brewery": "Allagash Brewing Company",
+        "abv": "9.5% "
+    },
+    {
+        "name": "Hopback Amber Ale",
+        "type": "Amber",
+        "brewloc": "Hershey, PA",
+        "brewery": "Troegs Brewing Company",
+        "abv": "6%"
+    },
+    {
+        "name": "Hershey's Chocolate Porter",
+        "type": "Porter",
+        "brewloc": "Pottsville, PA",
+        "brewery": "Yuengling Brewery",
+        "abv": "4.7%"
+    },
+    {
+        "name": "Pecan Porter ",
+        "type": "Porter",
+        "brewloc": "Austin, TX",
+        "brewery": "(512) Brewing Company",
+        "abv": "6.2%"
+    },
+    {
+        "name": "Creme Brulee",
+        "type": "Stout",
+        "brewloc": "Lakewood, NY",
+        "brewery": "Southern Tier Brewing Company",
+        "abv": "10%"
+    },
+    {
+        "name": "Breakfast Stout",
+        "type": "Stout",
+        "brewloc": "Grand Rapids, MI",
+        "brewery": "Founders Brewing Company",
+        "abv": "8.3% "
+    },
+    {
+        "name": "Heavy Machinery Wet Hop IPA",
+        "type": "Wet Hop",
+        "brewloc": "Austin, TX",
+        "brewery": "Austin Beerworks",
+        "abv": "7%"
+    },
+    {
+        "name": "Chasin' Freshies",
+        "type": "Wet Hop",
+        "brewloc": "Bend, OR",
+        "brewery": "Deschutes Brewery",
+        "abv": "6%"
+    },
+    {
+        "name": "Pliny the Elder",
+        "type": "IPA",
+        "brewloc": "Santa Rosa, CA",
+        "brewery": "Russian River Brewing Company",
+        "abv": "8%"
+    },
+    {
         "name": "Big IPA Dank",
-        "type": "Double IPA"
+        "type": "Double IPA",
+        "brewloc": "place",
+        "brewery": "garage",
+        "abv": "1.1"
     },
     {
-        "name": "Larry's Pilsner Yello",
-        "type": "Pilsner"
+        "name": "Really Big Bird",
+        "type": "IPA",
+        "brewloc": "Boston, MA",
+        "brewery": "Trillium Brewing Company",
+        "abv": "9%"
     },
     {
-        "name": "Hefty Visen",
-        "type": "Hefeweizen"
+        "name": "Oktoberfest",
+        "type": "Non-Alcoholic",
+        "brewloc": "Anaheim, CA",
+        "brewery": "Bravus Brewing Co.",
+        "abv": "<.5%"
     },
     {
-        "name": "Shiner Bock",
-        "type": "Bock"
-    },
-    {
-        "name": "Coors",
-        "type": "American Pilsner"
+        "name": "ELECTRIC BOOGALOO",
+        "type": "Neipa",
+        "brewloc": "Rogerstone, Newport, Wales",
+        "brewery": "Tiny Rebel",
+        "abv": "4.5%"
     }
+
   ]
+
