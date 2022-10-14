@@ -1,7 +1,48 @@
-<!-- Loop over each object in the projects array -->
-<div class="row mb-4 project">
-  <div class="col-md-5">
-    <h2> Here is the NEW homepage!</h2>
-  </div>
-</div>
 
+<section class="section">
+      <div class="container">
+        <h1 class="is-size-1 has-text-centered" id="title">Beer Buddies</h1>
+        <p class="subtitle is-italic has-text-centered pb-5" id="title">
+          Connect with nearby beer enthusiasts!
+        </p>
+      </div>
+
+      <div class="columns is-mobile">
+        <div class="column is-two-thirds mr-5 border">
+          <h1 class="is-size-3 blog">Beer Blog</h1>
+          <hr />
+          {{#each posts as |post|}}
+          <div class="post">
+            <p>
+              {{post.author}} - {{post.body}}
+            </p>
+          </div>
+            {{#each post.comments as |comment|}}
+          <div class="comment ml-6 mr-6">
+            <p>
+              {{comment.author}} - {{comment.body}}
+            </p>
+          </div>
+            {{/each}}
+          <a href="" class="addComment">Add Comment</a>
+          {{/each}}
+          
+          
+        </div>
+
+        <div class="column border">
+          <h1 class="is-size-3 checklist">Beer Checklist Leaderboard</h1>
+          <hr />
+          <ol class="leaderboard ml-6 checklist">
+            {{#each leaderboardList as |listitem|}}
+              {{setVariable "rank" (add_one @index)}}
+              {{setVariable "1st" (is_one rank)}}
+              <li id="{{#if 1st}}topDog{{/if}}">{{listitem.user}} - {{listitem.drank_beers}}/{{listitem.total_beers}}</li>
+            {{/each}}
+           <!-- <li id="secondDog">James Johnson - 11/18</li>
+            <li id="thirdDog">Austin Moore - 10/18</li> -->
+            
+          </ol>
+        </div>
+      </div>
+    </section>
