@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
-    <link rel="stylesheet" href="dashboard.css" />
+    <link rel="stylesheet" href="/public/css/style.css" />
   </head>
 
   <body>
@@ -35,7 +35,7 @@
     <section class="section">
       <div class="container">
         <div class="border">
-          <h1 class="is-size-3 has-text-center profileInfo">Profile Info</h1>
+          <h1 class="is-size-3 has-text-center mt-4 profileInfo">Profile Info</h1>
           <hr />
           <div class="columns">
             <div class="column">
@@ -63,7 +63,7 @@
         </div>
       </div>
     </section>
-            <h1 class="is-size-3 myStuff">
+            <h1 class="is-size-3 mb-4 myStuff">
               My Stuff
             </h1>
             <div class="tabs is-centered">
@@ -376,7 +376,7 @@
                 </tbody>
               </table></div>
               <div id="beerLeaderboard" class="hidden"><div class="column border">
-                <h1 class="is-size-3 leaderboard">Beer Checklist Leaderboard</h1>
+                <h1 class="is-size-3 mt-1 leaderboard">Beer Checklist Leaderboard</h1>
                 <hr />
                 <ol class="leaderboard ml-6 checklist">
                     <li id="topDog">Sid Muratee - 12/18</li>
@@ -423,12 +423,32 @@
         Near Beer
       </h1>
       <hr>
-    <img src="/mocks/img/beerMap.jpg" alt="beer map" class="beerMap">
+    <img src="/mocks/img/beerMap.jpg" alt="beer map" class="beerMap is-centered">
     <hr>
     <h1 class="is-size-3 nearBeer">
         New Post
       </h1>
       <hr>
+      <article class="media">
+        <div class="media-content">
+          <div class="field">
+            <p class="control">
+              <textarea class="textarea" placeholder="Make a new post..."></textarea>
+            </p>
+          </div>
+          <nav class="level">
+            <div class="level-left">
+              <div class="level-item">
+                <a class="button mb-5">Submit</a>
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+              </div>
+            </div>
+          </nav>
+        </div>
+      </article>
     <footer class="navbar2">
       <div class="navbar-start">
         <a class="navbar-item">Contact Us</a>
