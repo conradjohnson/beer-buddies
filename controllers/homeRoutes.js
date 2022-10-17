@@ -174,15 +174,83 @@ router.get('/dashboard', withAuth, async (req, res) => {
         where:{user_id: userId},
         include:{model:Beer}
       })
-      
       const beersList = beerListData.map((beerlist) => beerlist.get({ plain: true }));
       console.log(beersList);
      // console.log(userId);
+
+//TODO to make a separate function for leaderboard
+      //get beerleader board data.
+    // needs more intelligence to count of checked functionality grouped by user to limit the user object.
+    const beerLeaderboardData = await Beerlist.findAll({
+      order:[['user_id', 'ASC'], ['beer_id', 'ASC']],
+      include:[{model:User}],
+      
+    })
+    const beerLeaderboard = beerLeaderboardData.map((blb) => blb.get({plain: true}));
+    const leaderboardList = [];
+    let current_user_id = beerLeaderboard[0].user_id;
+   
+    let listObj = {
+      user_id: current_user_id,
+      user: beerLeaderboard[0].user.username,
+    }
+    let total_beer_count = 0;
+    let drank_count =0;
+    for (let i=0; i<beerLeaderboard.length; i++){
+      console.log("Current User:" + current_user_id);
+      if (current_user_id === beerLeaderboard[i].user_id){
+        total_beer_count++;
+          if (beerLeaderboard[i].drank){
+            drank_count++;
+          }
+      } else{
+        //add beercounts to object
+        let beerCounts = {
+          total_beers: total_beer_count,
+          drank_beers: drank_count 
+        }
+        listObj = Object.assign(listObj, beerCounts);
+        
+        //add object to leaderboardList array
+        leaderboardList.push(listObj);
+        // set new current_user_id
+        current_user_id = beerLeaderboard[i].user_id;
+
+        // set total beer and drank count to 1 and 1/0 respectively
+        total_beer_count = 1;
+        if (beerLeaderboard[i].drank){
+          drank_count=1;
+        } else {
+          drank_count = 0;
+        }
+
+        // set new listObj
+        listObj = {
+          user_id: current_user_id,
+          user: beerLeaderboard[i].user.username,
+        }
+      }
+    }
+    //complete last listObj
+    let beerCountsEnd = {
+      total_beers: total_beer_count,
+      drank_beers: drank_count 
+    }
+    listObj = Object.assign(listObj, beerCountsEnd);
+    // add object to leaderboardList array
+    leaderboardList.push(listObj);
+
+    //console.log(beerLeaderboard);
+   console.log(leaderboardList);
+
+
+
           
      // console.log(user);
       res.render('dashboard', {
         ...user,
         beersList,
+        leaderboardList,
        logged_in: req.session.logged_in
       });
     } catch (err) {
