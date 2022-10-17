@@ -5,7 +5,8 @@ body {
   background-color: rgb(255, 176, 17);
 }
 #title {
-  color: white;
+  color: rgb(255, 197, 81);
+  margin-bottom: 30px;
 }
 
 .blog {
@@ -15,7 +16,12 @@ body {
 .checklist {
   color: white;
 }
-
+.landing{
+text-align: center;
+}
+.landingBox{
+color:rgb(255, 195, 75);
+}
 .post {
   background-color: rgb(255, 176, 17);
   border-radius: 5px;
@@ -36,14 +42,17 @@ body {
   text-decoration: underline;
   margin-left: 49px;
 }
-.media {
-  max-width: 90%;
+.homepageMedia {
+  max-width: 70%;
   max-height: 50%;
   margin-left: 48px;
 }
-
+.field{
+margin-right:15px;
+margin-left:15px;
+}
 .navbar2 {
-  background-color: rgb(255, 176, 17);
+  background-color: rgb(255, 187, 51);
   margin-bottom: auto;
   left: 0px;
   bottom: 0px;
@@ -61,7 +70,9 @@ body {
   color: white;
   text-align: center;
 }
-
+.label{
+ color: rgb(255, 176, 17)
+}
 hr {
   height: 1px;
   border-width: 0;
@@ -69,6 +80,12 @@ hr {
 }
 .pic {
   margin-left: 75px;
+}
+.beerLogoImg{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
 }
 .userName {
   color: white;
@@ -138,12 +155,11 @@ hr {
 
 .nearBeer {
   color: rgb(255, 176, 17);
-  text-align: center;
+  text-align:left;
+  
 }
 .beerMap {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+ 
   width: 50%;
 }
 .button {

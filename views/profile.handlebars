@@ -14,3 +14,97 @@ profile stuff here
       
 {{/each}}
 
+ <section class="section">
+      <div class="container">
+        <div class="border">
+          <h1 class="is-size-3 has-text-center mt-3 profileInfo">{{name}}</h1>
+          <hr />
+          <div class="columns">
+            <div class="column">
+              <img
+                src="img/me.jpg"
+                alt="profile pic"
+                style="max-height: 200px"
+                class="pic"
+              />
+            </div>
+            <div class="column">
+              <h3 class="is-size-4 userName">{{name}}</h3>
+              <h3 class="is-size-4 userName">Username: Funky Brewster</h3>
+              <h3 class="is-size-4 userName">Hometown: Dallas</h3>
+            </div>
+            <div class="column favBeers">
+              <ul class="is-size-4 favBeers">
+                Favorite Beers:
+              </ul>
+              <li class="is-size-4 favBeersItems">Juicy Haze IPA</li>
+              <li class="is-size-4 favBeersItems">Any Pumpkin Beer</li>
+              <li class="is-size-4 favBeersItems">Free Beer</li>
+            </div>
+          </div>
+          <hr />
+
+          <div>
+            <h1 class="is-size-3 has-text-center pb-5 profileInfo">
+              Beer Checklist
+            </h1>
+          </div>
+          <table class="table is-centered beerList">
+            <thead>
+              <tr>
+                <th><abbr title="Beer Number">Beer #</abbr></th>
+                <th>Beer Name</th>
+                <th><abbr title="Brewery">Brewery</abbr></th>
+                <th><abbr title="Home City">Home City</abbr></th>
+                <th><abbr title="Beer Type">Beer Type</abbr></th>
+                <th><abbr title="Alcohol Content">Alc %</abbr></th>
+                <th><abbr title="Drank?">Drank?</abbr></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td>{{drink.beer.name}}</td>
+                <td>Beak & Skiff Apple Orchards</td>
+                <td>Lafayette, NY</td>
+                <td>{{drink.beer.type}}</td>
+                <td>7.5%</td>
+                <td>
+                  <label class="checkbox">
+                    <input type="checkbox" />
+                    Ya drank?{{drink.drank}}
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="section">
+          <div class="column border">
+            <h1 class="is-size-3 blog">Blog Posts</h1>
+            <hr />
+            <div class="post">
+                <a href="" class="is-size-4 is-centered postTitle">{{post.title}}</a>
+              <p>
+                {{post.body}}
+              </p>
+            </div>
+
+            <div class="post">
+                <a href="" class="is-size-4 is-centered postTitle">Lorem ipsum.</a>
+              <p>
+                Lorem
+              </p>
+            </div>
+
+            <div class="post">
+                <a href="" class="is-size-4 is-centered postTitle">Lorem ipsum.</a>
+              <p>
+                Lorem 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

@@ -1,460 +1,486 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Beer Buddies Dashboard</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="/public/css/style.css" />
-  </head>
 
-  <body>
-    <nav class="navbar has-shadow">
-      <!--logo / brand-->
-      <div class="navbar-brand">
-        <a class="navbar-item">
-          <img
-            src="img/beer.png"
-            alt="site logo"
-            style="max-height: 60px"
-            class="py-2 px-2"
-          />
-        </a>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beer Buddies Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <link rel="stylesheet" href="/public/css/style.css" />
+</head>
+
+<body>
+  <nav class="navbar has-shadow">
+    <!--logo / brand-->
+    <div class="navbar-brand">
+      <a class="navbar-item">
+        <img src="img/beer.png" alt="site logo" style="max-height: 60px" class="py-2 px-2" />
+      </a>
+    </div>
+    <div class="navbar-menu is-active">
+      <div class="navbar-end">
+        <a class="navbar-item">My Dashboard</a>
+        <a class="navbar-item">Blog Posts</a>
+        <a class="navbar-item">Log In/Sign Up</a>
       </div>
-      <div class="navbar-menu is-active">
-        <div class="navbar-end">
-          <a class="navbar-item">My Dashboard</a>
-          <a class="navbar-item">Blog Posts</a>
-          <a class="navbar-item">Log In/Sign Up</a>
-        </div>
-      </div>
-    </nav>
-    <section class="section">
-      <div class="container">
-        <div class="border">
-          <h1 class="is-size-3 has-text-center mt-4 profileInfo">Profile Info</h1>
-          <hr />
-          <div class="columns">
-            <div class="column">
-              <img
-                src="img/me.jpg"
-                alt="profile pic"
-                style="max-height: 200px"
-                class="pic mb-4"
-              />
-            </div>
-            <div class="column">
-              <h3 class="is-size-4 userName">Name: Austin Moore</h3>
-              <h3 class="is-size-4 userName">Username: Funky Brewster</h3>
-              <h3 class="is-size-4 userName">Hometown: Dallas</h3>
-            </div>
-            <div class="column favBeers">
-              <ul class="is-size-4 favBeers">
-                Favorite Beers:
-              </ul>
-              <li class="is-size-4 favBeersItems">Juicy Haze IPA</li>
-              <li class="is-size-4 favBeersItems">Any Pumpkin Beer</li>
-              <li class="is-size-4 favBeersItems">Free Beer</li>
-            </div>
+    </div>
+  </nav>
+  <section class="section">
+    <div class="container">
+      <div class="border">
+        <h1 class="is-size-3 has-text-center mt-4 profileInfo">Profile Info</h1>
+        <hr />
+        <div class="columns">
+          <div class="column">
+            <img src="img/me.jpg" alt="profile pic" style="max-height: 200px" class="pic mb-4" />
+          </div>
+          <div class="column">
+            <h3 class="is-size-4 userName">Name: Austin Moore</h3>
+            <h3 class="is-size-4 userName">Username: Funky Brewster</h3>
+            <h3 class="is-size-4 userName">Hometown: Dallas</h3>
+          </div>
+          <div class="column favBeers">
+            <ul class="is-size-4 favBeers">
+              Favorite Beers:
+            </ul>
+            <li class="is-size-4 favBeersItems">Juicy Haze IPA</li>
+            <li class="is-size-4 favBeersItems">Any Pumpkin Beer</li>
+            <li class="is-size-4 favBeersItems">Free Beer</li>
           </div>
         </div>
       </div>
-    </section>
-            <h1 class="is-size-3 mb-4 myStuff">
-              My Stuff
-            </h1>
-            <div class="tabs is-centered">
-                <ul class="tabs">
-                  <li><a class="button" id="clButton">Beer Checklist</a></li>
-                  <li><a class="button" id="lpButton">Latest Posts</a></li>
-                  <li><a class="button" id="lbButton">Leaderboard</a></li>
-                </ul>
-              </div>
-              <div id = "beerChecklist"> <table class="table is-centered beerList">
-                <thead>
-                  <tr>
-                    <th><abbr title="Beer Number">Beer #</abbr></th>
-                    <th>Beer Name</th>
-                    <th><abbr title="Brewery">Brewery</abbr></th>
-                    <th><abbr title="Home City">Home City</abbr></th>
-                    <th><abbr title="Beer Type">Beer Type</abbr></th>
-                    <th><abbr title="Alcohol Content">Alc %</abbr></th>
-                    <th><abbr title="Drank?">Drank?</abbr></th>
-                  </tr>
-                </thead>
-    
-                <tbody>
-                  <tr>
-                    <th>1</th>
-                    <td>Cider Donut Hard Cider</td>
-                    <td>Beak & Skiff Apple Orchards</td>
-                    <td>Lafayette, NY</td>
-                    <td>Hard Cider</td>
-                    <td>7.5%</td>
-                    <td>
-                      <label class="checkbox">
-                        <input type="checkbox" />
-                        Ya drank?
-                      </label>
-                    </td>
-                  </tr>
-    
-                  <tr>
-                    <th>2</th>
-                    <td>Fig Hard Cider</td>
-                    <td>3 Daughters Brewing</td>
-    
-                    <td>St Petersburg, FL</td>
-                    <td>Hard Cider</td>
-                    <td>5.5%</td>
-                    <td>
-                      <label class="checkbox">
-                        <input type="checkbox" />
-                        Ya drank?
-                      </label>
-                    </td>
-                  </tr>
-    
-                  <tr>
-                    <th>3</th>
-                    <td>Oktoberfest Marzen</td>
-                    <td>Paulaner Brauerei</td>
-    
-                    <td>Munich, Germany</td>
-                    <td>Marzen-Oktoberfest</td>
-                    <td>5.8%</td>
-                    <td>
-                      <label class="checkbox">
-                        <input type="checkbox" />
-                        Ya drank?
-                      </label>
-                    </td>
-                  </tr>
-    
-                  <tr>
-                    <th>4</th>
-                    <td>Spaten Oktoberfestbier</td>
-                    <td>Spaten-Franziskaner-Brau</td>
-    
-                    <td>Munchen, Germany</td>
-                    <td>Marzen-Oktoberfest</td>
-                    <td>5.9%</td>
-                    <td>
-                      <label class="checkbox">
-                        <input type="checkbox" />
-                        Ya drank?
-                      </label>
-                    </td>
-                  </tr>
-    
-                  <tr>
-                    <th>5</th>
-                    <td>Voodoo Ranger Atomic Pumpkin</td>
-                    <td>New Belgium</td>
-    
-                    <td>Fort Collins, CO</td>
-                    <td>Pumpkin Ale</td>
-                    <td>6.4%</td>
-                    <td>
-                      <label class="checkbox">
-                        <input type="checkbox" />
-                        Ya drank?
-                      </label>
-                    </td>
-                  </tr>
-    
-                  <tr>
-                    <th>6</th>
-                    <td>Cider Donut Hard Cider</td>
-                    <td>Beak & Skiff Apple Orchards</td>
-    
-                    <td>Lafayette, NY</td>
-                    <td>Hard Cider</td>
-                    <td>7.5%</td>
-                    <td>
-                      <label class="checkbox">
-                        <input type="checkbox" />
-                        Ya drank?
-                      </label>
-                    </td>
-                  </tr>
-    
-                  <tr>
-                    <th>7</th>
-                    <td>Cider Donut Hard Cider</td>
-                    <td>Beak & Skiff Apple Orchards</td>
-    
-                    <td>Lafayette, NY</td>
-                    <td>Hard Cider</td>
-                    <td>7.5%</td>
-                    <td>
-                      <label class="checkbox">
-                        <input type="checkbox" />
-                        Ya drank?
-                      </label>
-                    </td>
-                  </tr>
-    
-                  <tr>
-                    <th>8</th>
-                    <td>Cider Donut Hard Cider</td>
-                    <td>Beak & Skiff Apple Orchards</td>
-    
-                    <td>Lafayette, NY</td>
-                    <td>Hard Cider</td>
-                    <td>7.5%</td>
-                    <td>
-                      <label class="checkbox">
-                        <input type="checkbox" />
-                        Ya drank?
-                      </label>
-                    </td>
-                  </tr>
-    
-                  <tr>
-                    <th>9</th>
-                    <td>Cider Donut Hard Cider</td>
-                    <td>Beak & Skiff Apple Orchards</td>
-    
-                    <td>Lafayette, NY</td>
-                    <td>Hard Cider</td>
-                    <td>7.5%</td>
-                    <td>
-                      <label class="checkbox">
-                        <input type="checkbox" />
-                        Ya drank?
-                      </label>
-                    </td>
-                  </tr>
-    
-                  <tr>
-                    <th>10</th>
-                    <td>Cider Donut Hard Cider</td>
-                    <td>Beak & Skiff Apple Orchards</td>
-    
-                    <td>Lafayette, NY</td>
-                    <td>Hard Cider</td>
-                    <td>7.5%</td>
-                    <td>
-                      <label class="checkbox">
-                        <input type="checkbox" />
-                        Ya drank?
-                      </label>
-                    </td>
-                  </tr>
-    
-                  <tr>
-                    <th>11</th>
-                    <td>Cider Donut Hard Cider</td>
-                    <td>Beak & Skiff Apple Orchards</td>
-    
-                    <td>Lafayette, NY</td>
-                    <td>Hard Cider</td>
-                    <td>7.5%</td>
-                    <td>
-                      <label class="checkbox">
-                        <input type="checkbox" />
-                        Ya drank?
-                      </label>
-                    </td>
-                  </tr>
-    
-                  <tr>
-                    <th>12</th>
-                    <td>Cider Donut Hard Cider</td>
-                    <td>Beak & Skiff Apple Orchards</td>
-    
-                    <td>Lafayette, NY</td>
-                    <td>Hard Cider</td>
-                    <td>7.5%</td>
-                    <td>
-                      <label class="checkbox">
-                        <input type="checkbox" />
-                        Ya drank?
-                      </label>
-                    </td>
-                  </tr>
-    
-                  <tr>
-                    <th>13</th>
-                    <td>Cider Donut Hard Cider</td>
-                    <td>Beak & Skiff Apple Orchards</td>
-    
-                    <td>Lafayette, NY</td>
-                    <td>Hard Cider</td>
-                    <td>7.5%</td>
-                    <td>
-                      <label class="checkbox">
-                        <input type="checkbox" />
-                        Ya drank?
-                      </label>
-                    </td>
-                  </tr>
-    
-                  <tr>
-                    <th>14</th>
-                    <td>Cider Donut Hard Cider</td>
-                    <td>Beak & Skiff Apple Orchards</td>
-    
-                    <td>Lafayette, NY</td>
-                    <td>Hard Cider</td>
-                    <td>7.5%</td>
-                    <td>
-                      <label class="checkbox">
-                        <input type="checkbox" />
-                        Ya drank?
-                      </label>
-                    </td>
-                  </tr>
-    
-                  <tr>
-                    <th>15</th>
-                    <td>Cider Donut Hard Cider</td>
-                    <td>Beak & Skiff Apple Orchards</td>
-    
-                    <td>Lafayette, NY</td>
-                    <td>Hard Cider</td>
-                    <td>7.5%</td>
-                    <td>
-                      <label class="checkbox">
-                        <input type="checkbox" />
-                        Ya drank?
-                      </label>
-                    </td>
-                  </tr>
-    
-                  <tr>
-                    <th>16</th>
-                    <td>Cider Donut Hard Cider</td>
-                    <td>Beak & Skiff Apple Orchards</td>
-    
-                    <td>Lafayette, NY</td>
-                    <td>Hard Cider</td>
-                    <td>7.5%</td>
-                    <td>
-                      <label class="checkbox">
-                        <input type="checkbox" />
-                        Ya drank?
-                      </label>
-                    </td>
-                  </tr>
-    
-                  <tr>
-                    <th>17</th>
-                    <td>Cider Donut Hard Cider</td>
-                    <td>Beak & Skiff Apple Orchards</td>
-    
-                    <td>Lafayette, NY</td>
-                    <td>Hard Cider</td>
-                    <td>7.5%</td>
-                    <td>
-                      <label class="checkbox">
-                        <input type="checkbox" />
-                        Ya drank?
-                      </label>
-                    </td>
-                  </tr>
-    
-                  <tr>
-                    <th>18</th>
-                    <td>Cider Donut Hard Cider</td>
-                    <td>Beak & Skiff Apple Orchards</td>
-    
-                    <td>Lafayette, NY</td>
-                    <td>Hard Cider</td>
-                    <td>7.5%</td>
-                    <td>
-                      <label class="checkbox">
-                        <input type="checkbox" />
-                        Ya drank?
-                      </label>
-                    </td>
-                  </tr>
-                </tbody>
-              </table></div>
-              <div id="beerLeaderboard" class="hidden"><div class="column border">
-                <h1 class="is-size-3 mt-1 leaderboard">Beer Checklist Leaderboard</h1>
-                <hr />
-                <ol class="leaderboard ml-6 checklist">
-                    <li id="topDog">Sid Muratee - 12/18</li>
-                    <li id="secondDog">James Johnson - 11/18</li>
-                    <li id="thirdDog">Austin Moore - 10/18</li>
-                    <li>Jo Bon Jovereasy - 9/18</li>
-                    <li>Bart Scrimpson - 8/18</li>
-                    <li>Punny Bono - 7/18</li>
-                    <li>Dane Andrews - 6/18</li>
-                    <li>Gucci Gang - 5/18</li>
-                    <li>Nah Mean - 4/18</li>
-                    <li>Keith Davidson - 3/18</li>
-                  </ol>
-              </div></div>
-              <div id="latestPosts" class="hidden"><div class="section">
-                <div class="column border">
-                  <h1 class="is-size-3 blog">Blog Posts</h1>
-                  <hr />
-                  <div class="post">
-                    <a href="" class="is-size-4 is-centered postTitle">Lorem ipsum.</a>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum id ducimus dignissimos nesciunt dolore consequatur fuga. Culpa laboriosam eos alias minus! Amet expedita doloremque praesentium non saepe omnis, qui fugiat commodi vitae numquam mollitia dolore. Ullam tempora nulla fugit saepe, enim distinctio dicta. Nisi debitis minus nulla eligendi odio, possimus id labore, sunt eum, consectetur aut voluptatem at. Modi quos quia labore odio optio, dolorem, magni, alias nulla mollitia vitae voluptate suscipit sit deleniti quaerat saepe deserunt nam ea temporibus. Cumque provident recusandae rerum deserunt illum eos natus vitae amet blanditiis beatae magni accusantium odit, eius quos qui ipsam quisquam.
-                    </p>
-                  </div>
-      
-                  <div class="post">
-                    <a href="" class="is-size-4 is-centered postTitle">Lorem ipsum.</a>
-                    <p>
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi dolore itaque et nesciunt praesentium voluptatibus, nulla dolorem, consectetur earum deserunt soluta quo, eveniet maiores ullam odit eius natus nostrum voluptates. Dolore ea repellat dignissimos a magni nihil harum. Fuga est dolorum quasi similique. Magni iusto dolores et eveniet consequuntur suscipit iure ducimus est. Illo consequuntur recusandae quibusdam autem, aspernatur illum! Esse quaerat voluptate consequatur hic impedit eos fuga ut beatae dolor at? Odio obcaecati commodi doloremque illo molestiae facere assumenda debitis asperiores quasi repellendus ad enim repudiandae voluptates neque, et inventore iusto a doloribus iure beatae magnam. Quis, illo culpa est provident cum veniam consequuntur animi maiores eligendi impedit temporibus, cumque id eos illum tenetur cupiditate quaerat in quas velit. Rem aut beatae quas explicabo corrupti consequatur consequuntur minima. Dolores similique id, laudantium quaerat recusandae debitis laborum repudiandae culpa ipsa quidem, vitae alias? Ab, repudiandae nobis soluta laboriosam ducimus earum?
-                    </p>
-                  </div>
-      
-                  <div class="post">
-                    <a href="" class="is-size-4 is-centered postTitle">Lorem ipsum.</a>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Non accusamus sapiente inventore a omnis sequi sunt ullam id nulla, nihil delectus saepe quod distinctio deleniti vel, nobis consectetur? Beatae voluptate unde eius magnam, dignissimos, necessitatibus recusandae sed tempore hic nihil, maxime consequuntur? Nobis laboriosam doloribus unde aut ipsa non hic aliquam corrupti excepturi iure nulla repudiandae autem tempore doloremque cumque voluptatibus culpa quibusdam, nostrum accusantium? Excepturi eos esse molestiae, quibusdam laudantium nesciunt iusto dolorem quam modi, mollitia fugiat? Tempora magni asperiores, dolore cupiditate pariatur quo soluta eius veritatis quia sit vitae nobis exercitationem voluptatibus neque aliquam saepe deserunt sapiente fuga nisi, animi ex nemo veniam a. Temporibus rem aut neque porro quam, quasi vitae! Odio assumenda vero debitis suscipit corrupti non necessitatibus, at similique eum!
-                    </p>
-                  </div>
-                </div>
-              </div></div>
-    </section>
-    <hr>
-    <h1 class="is-size-3 nearBeer">
+    </div>
+  </section>
+  <h1 class="is-size-3 mb-4 myStuff">
+    My Stuff
+  </h1>
+  <div class="tabs is-centered">
+    <ul class="tabs">
+      <li><a class="button" id="clButton">Beer Checklist</a></li>
+      <li><a class="button" id="lpButton">Latest Posts</a></li>
+      <li><a class="button" id="lbButton">Leaderboard</a></li>
+    </ul>
+  </div>
+  <div id="beerChecklist">
+    <table class="table is-centered beerList">
+      <thead>
+        <tr>
+          <th><abbr title="Beer Number">Beer #</abbr></th>
+          <th>Beer Name</th>
+          <th><abbr title="Brewery">Brewery</abbr></th>
+          <th><abbr title="Home City">Home City</abbr></th>
+          <th><abbr title="Beer Type">Beer Type</abbr></th>
+          <th><abbr title="Alcohol Content">Alc %</abbr></th>
+          <th><abbr title="Drank?">Drank?</abbr></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <th>1</th>
+          <td>Cider Donut Hard Cider</td>
+          <td>Beak & Skiff Apple Orchards</td>
+          <td>Lafayette, NY</td>
+          <td>Hard Cider</td>
+          <td>7.5%</td>
+          <td>
+            <label class="checkbox">
+              <input type="checkbox" />
+              Ya drank?
+            </label>
+          </td>
+        </tr>
+
+        <tr>
+          <th>2</th>
+          <td>Fig Hard Cider</td>
+          <td>3 Daughters Brewing</td>
+
+          <td>St Petersburg, FL</td>
+          <td>Hard Cider</td>
+          <td>5.5%</td>
+          <td>
+            <label class="checkbox">
+              <input type="checkbox" />
+              Ya drank?
+            </label>
+          </td>
+        </tr>
+
+        <tr>
+          <th>3</th>
+          <td>Oktoberfest Marzen</td>
+          <td>Paulaner Brauerei</td>
+
+          <td>Munich, Germany</td>
+          <td>Marzen-Oktoberfest</td>
+          <td>5.8%</td>
+          <td>
+            <label class="checkbox">
+              <input type="checkbox" />
+              Ya drank?
+            </label>
+          </td>
+        </tr>
+
+        <tr>
+          <th>4</th>
+          <td>Spaten Oktoberfestbier</td>
+          <td>Spaten-Franziskaner-Brau</td>
+
+          <td>Munchen, Germany</td>
+          <td>Marzen-Oktoberfest</td>
+          <td>5.9%</td>
+          <td>
+            <label class="checkbox">
+              <input type="checkbox" />
+              Ya drank?
+            </label>
+          </td>
+        </tr>
+
+        <tr>
+          <th>5</th>
+          <td>Voodoo Ranger Atomic Pumpkin</td>
+          <td>New Belgium</td>
+
+          <td>Fort Collins, CO</td>
+          <td>Pumpkin Ale</td>
+          <td>6.4%</td>
+          <td>
+            <label class="checkbox">
+              <input type="checkbox" />
+              Ya drank?
+            </label>
+          </td>
+        </tr>
+
+        <tr>
+          <th>6</th>
+          <td>Cider Donut Hard Cider</td>
+          <td>Beak & Skiff Apple Orchards</td>
+
+          <td>Lafayette, NY</td>
+          <td>Hard Cider</td>
+          <td>7.5%</td>
+          <td>
+            <label class="checkbox">
+              <input type="checkbox" />
+              Ya drank?
+            </label>
+          </td>
+        </tr>
+
+        <tr>
+          <th>7</th>
+          <td>Cider Donut Hard Cider</td>
+          <td>Beak & Skiff Apple Orchards</td>
+
+          <td>Lafayette, NY</td>
+          <td>Hard Cider</td>
+          <td>7.5%</td>
+          <td>
+            <label class="checkbox">
+              <input type="checkbox" />
+              Ya drank?
+            </label>
+          </td>
+        </tr>
+
+        <tr>
+          <th>8</th>
+          <td>Cider Donut Hard Cider</td>
+          <td>Beak & Skiff Apple Orchards</td>
+
+          <td>Lafayette, NY</td>
+          <td>Hard Cider</td>
+          <td>7.5%</td>
+          <td>
+            <label class="checkbox">
+              <input type="checkbox" />
+              Ya drank?
+            </label>
+          </td>
+        </tr>
+
+        <tr>
+          <th>9</th>
+          <td>Cider Donut Hard Cider</td>
+          <td>Beak & Skiff Apple Orchards</td>
+
+          <td>Lafayette, NY</td>
+          <td>Hard Cider</td>
+          <td>7.5%</td>
+          <td>
+            <label class="checkbox">
+              <input type="checkbox" />
+              Ya drank?
+            </label>
+          </td>
+        </tr>
+
+        <tr>
+          <th>10</th>
+          <td>Cider Donut Hard Cider</td>
+          <td>Beak & Skiff Apple Orchards</td>
+
+          <td>Lafayette, NY</td>
+          <td>Hard Cider</td>
+          <td>7.5%</td>
+          <td>
+            <label class="checkbox">
+              <input type="checkbox" />
+              Ya drank?
+            </label>
+          </td>
+        </tr>
+
+        <tr>
+          <th>11</th>
+          <td>Cider Donut Hard Cider</td>
+          <td>Beak & Skiff Apple Orchards</td>
+
+          <td>Lafayette, NY</td>
+          <td>Hard Cider</td>
+          <td>7.5%</td>
+          <td>
+            <label class="checkbox">
+              <input type="checkbox" />
+              Ya drank?
+            </label>
+          </td>
+        </tr>
+
+        <tr>
+          <th>12</th>
+          <td>Cider Donut Hard Cider</td>
+          <td>Beak & Skiff Apple Orchards</td>
+
+          <td>Lafayette, NY</td>
+          <td>Hard Cider</td>
+          <td>7.5%</td>
+          <td>
+            <label class="checkbox">
+              <input type="checkbox" />
+              Ya drank?
+            </label>
+          </td>
+        </tr>
+
+        <tr>
+          <th>13</th>
+          <td>Cider Donut Hard Cider</td>
+          <td>Beak & Skiff Apple Orchards</td>
+
+          <td>Lafayette, NY</td>
+          <td>Hard Cider</td>
+          <td>7.5%</td>
+          <td>
+            <label class="checkbox">
+              <input type="checkbox" />
+              Ya drank?
+            </label>
+          </td>
+        </tr>
+
+        <tr>
+          <th>14</th>
+          <td>Cider Donut Hard Cider</td>
+          <td>Beak & Skiff Apple Orchards</td>
+
+          <td>Lafayette, NY</td>
+          <td>Hard Cider</td>
+          <td>7.5%</td>
+          <td>
+            <label class="checkbox">
+              <input type="checkbox" />
+              Ya drank?
+            </label>
+          </td>
+        </tr>
+
+        <tr>
+          <th>15</th>
+          <td>Cider Donut Hard Cider</td>
+          <td>Beak & Skiff Apple Orchards</td>
+
+          <td>Lafayette, NY</td>
+          <td>Hard Cider</td>
+          <td>7.5%</td>
+          <td>
+            <label class="checkbox">
+              <input type="checkbox" />
+              Ya drank?
+            </label>
+          </td>
+        </tr>
+
+        <tr>
+          <th>16</th>
+          <td>Cider Donut Hard Cider</td>
+          <td>Beak & Skiff Apple Orchards</td>
+
+          <td>Lafayette, NY</td>
+          <td>Hard Cider</td>
+          <td>7.5%</td>
+          <td>
+            <label class="checkbox">
+              <input type="checkbox" />
+              Ya drank?
+            </label>
+          </td>
+        </tr>
+
+        <tr>
+          <th>17</th>
+          <td>Cider Donut Hard Cider</td>
+          <td>Beak & Skiff Apple Orchards</td>
+
+          <td>Lafayette, NY</td>
+          <td>Hard Cider</td>
+          <td>7.5%</td>
+          <td>
+            <label class="checkbox">
+              <input type="checkbox" />
+              Ya drank?
+            </label>
+          </td>
+        </tr>
+
+        <tr>
+          <th>18</th>
+          <td>Cider Donut Hard Cider</td>
+          <td>Beak & Skiff Apple Orchards</td>
+
+          <td>Lafayette, NY</td>
+          <td>Hard Cider</td>
+          <td>7.5%</td>
+          <td>
+            <label class="checkbox">
+              <input type="checkbox" />
+              Ya drank?
+            </label>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="beerLeaderboard" class="hidden">
+    <div class="column border">
+      <h1 class="is-size-3 mt-1 leaderboard">Beer Checklist Leaderboard</h1>
+      <hr />
+      <ol class="leaderboard ml-6 checklist">
+        <li id="topDog">Sid Muratee - 12/18</li>
+        <li id="secondDog">James Johnson - 11/18</li>
+        <li id="thirdDog">Austin Moore - 10/18</li>
+        <li>Jo Bon Jovereasy - 9/18</li>
+        <li>Bart Scrimpson - 8/18</li>
+        <li>Punny Bono - 7/18</li>
+        <li>Dane Andrews - 6/18</li>
+        <li>Gucci Gang - 5/18</li>
+        <li>Nah Mean - 4/18</li>
+        <li>Keith Davidson - 3/18</li>
+      </ol>
+    </div>
+  </div>
+  <div id="latestPosts" class="hidden">
+    <div class="section">
+      <div class="column border">
+        <h1 class="is-size-3 blog">Blog Posts</h1>
+        <hr />
+        <div class="post">
+          <a href="" class="is-size-4 is-centered postTitle">Lorem ipsum.</a>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum id ducimus dignissimos nesciunt dolore
+            consequatur fuga. Culpa laboriosam eos alias minus! Amet expedita doloremque praesentium non saepe omnis,
+            qui fugiat commodi vitae numquam mollitia dolore. Ullam tempora nulla fugit saepe, enim distinctio dicta.
+            Nisi debitis minus nulla eligendi odio, possimus id labore, sunt eum, consectetur aut voluptatem at. Modi
+            quos quia labore odio optio, dolorem, magni, alias nulla mollitia vitae voluptate suscipit sit deleniti
+            quaerat saepe deserunt nam ea temporibus. Cumque provident recusandae rerum deserunt illum eos natus vitae
+            amet blanditiis beatae magni accusantium odit, eius quos qui ipsam quisquam.
+          </p>
+        </div>
+
+        <div class="post">
+          <a href="" class="is-size-4 is-centered postTitle">Lorem ipsum.</a>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi dolore itaque et nesciunt praesentium
+            voluptatibus, nulla dolorem, consectetur earum deserunt soluta quo, eveniet maiores ullam odit eius natus
+            nostrum voluptates. Dolore ea repellat dignissimos a magni nihil harum. Fuga est dolorum quasi similique.
+            Magni iusto dolores et eveniet consequuntur suscipit iure ducimus est. Illo consequuntur recusandae
+            quibusdam autem, aspernatur illum! Esse quaerat voluptate consequatur hic impedit eos fuga ut beatae dolor
+            at? Odio obcaecati commodi doloremque illo molestiae facere assumenda debitis asperiores quasi repellendus
+            ad enim repudiandae voluptates neque, et inventore iusto a doloribus iure beatae magnam. Quis, illo culpa
+            est provident cum veniam consequuntur animi maiores eligendi impedit temporibus, cumque id eos illum tenetur
+            cupiditate quaerat in quas velit. Rem aut beatae quas explicabo corrupti consequatur consequuntur minima.
+            Dolores similique id, laudantium quaerat recusandae debitis laborum repudiandae culpa ipsa quidem, vitae
+            alias? Ab, repudiandae nobis soluta laboriosam ducimus earum?
+          </p>
+        </div>
+
+        <div class="post">
+          <a href="" class="is-size-4 is-centered postTitle">Lorem ipsum.</a>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non accusamus sapiente inventore a omnis sequi sunt
+            ullam id nulla, nihil delectus saepe quod distinctio deleniti vel, nobis consectetur? Beatae voluptate unde
+            eius magnam, dignissimos, necessitatibus recusandae sed tempore hic nihil, maxime consequuntur? Nobis
+            laboriosam doloribus unde aut ipsa non hic aliquam corrupti excepturi iure nulla repudiandae autem tempore
+            doloremque cumque voluptatibus culpa quibusdam, nostrum accusantium? Excepturi eos esse molestiae, quibusdam
+            laudantium nesciunt iusto dolorem quam modi, mollitia fugiat? Tempora magni asperiores, dolore cupiditate
+            pariatur quo soluta eius veritatis quia sit vitae nobis exercitationem voluptatibus neque aliquam saepe
+            deserunt sapiente fuga nisi, animi ex nemo veniam a. Temporibus rem aut neque porro quam, quasi vitae! Odio
+            assumenda vero debitis suscipit corrupti non necessitatibus, at similique eum!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+  <hr>
+  <div class="columns">
+    <div class="column has-text-centered">
+      <h1 class="is-size-3 has-text-centered nearBeer">
         Near Beer
       </h1>
-      <hr>
-    <img src="/mocks/img/beerMap.jpg" alt="beer map" class="beerMap is-centered">
-    <hr>
-    <h1 class="is-size-3 nearBeer">
+      
+      <img src="/mocks/img/beerMap.jpg" alt="beer map" class="beerMap has-text-centered">
+    </div>
+    <div class="column ">
+      <h1 class="is-size-3 has-text-centered nearBeer">
         New Post
       </h1>
-      <hr>
-      <article class="media">
-        <div class="media-content">
-          <div class="field">
-            <p class="control">
-              <textarea class="textarea" placeholder="Make a new post..."></textarea>
-            </p>
-          </div>
-          <nav class="level">
-            <div class="level-left">
-              <div class="level-item">
-                <a class="button mb-5">Submit</a>
-              </div>
-            </div>
-            <div class="level-right">
-              <div class="level-item">
-              </div>
-            </div>
-          </nav>
+
+      <div class="field">
+        <label class="label">Title</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Title text">
         </div>
-      </article>
-    <footer class="navbar2">
-      <div class="navbar-start">
-        <a class="navbar-item">Contact Us</a>
-        <a class="navbar-item">Copyright Beer Buddies LLC</a>
       </div>
-    </footer>
-    <script src="./mocks.js"></script>
-  </body>
+
+      <div class="field">
+        <label class="label">Post</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="Post body"></textarea>
+        </div>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button">Submit</button>
+        </div>
+        <div class="control">
+          <button class="button">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="navbar2">
+    <div class="navbar-start">
+      <a class="navbar-item">Contact Us</a>
+      <a class="navbar-item">Copyright Beer Buddies LLC</a>
+    </div>
+  </footer>
+  <script src="./mocks.js"></script>
+</body>
+
 </html>
