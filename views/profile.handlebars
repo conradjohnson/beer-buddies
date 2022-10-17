@@ -1,20 +1,4 @@
-profile stuff here
-{{name}}
-profile stuff here
-{{#each posts as |post|}}
-<h4>{{post.title}}</h4>
-<p>{{post.body}}</p>
-    {{#each comments as |comment| }}
-        {{comment.body}}
-    {{/each}}
-{{/each}}
-
-{{#each beersList as |drink| }}
-   <p> {{drink.id}} {{drink.beer.name}} - {{drink.beer.type}} - is drank: {{drink.drank}}</p>
-      
-{{/each}}
-
- <section class="section">
+  <section class="section">
       <div class="container">
         <div class="border">
           <h1 class="is-size-3 has-text-center mt-3 profileInfo">{{name}}</h1>
@@ -33,14 +17,7 @@ profile stuff here
               <h3 class="is-size-4 userName">{{username}}</h3>
               <h3 class="is-size-4 userName">{{city}}</h3>
             </div>
-            <div class="column favBeers">
-              <ul class="is-size-4 favBeers">
-                Favorite Beers:
-              </ul>
-              <li class="is-size-4 favBeersItems">Juicy Haze IPA</li>
-              <li class="is-size-4 favBeersItems">Any Pumpkin Beer</li>
-              <li class="is-size-4 favBeersItems">Free Beer</li>
-            </div>
+            
           </div>
           <hr />
 
@@ -86,26 +63,15 @@ profile stuff here
           <div class="column border">
             <h1 class="is-size-3 blog">Blog Posts</h1>
             <hr />
+            {{#each posts as |post|}}
             <div class="post">
-                <a href="" class="is-size-4 is-centered postTitle">{{post.title}}</a>
+                <a href="/post/{{post.id}}" class="is-size-4 is-centered postTitle">{{post.title}}</a>
               <p>
                 {{post.body}}
               </p>
             </div>
-
-            <div class="post">
-                <a href="" class="is-size-4 is-centered postTitle">Lorem ipsum.</a>
-              <p>
-                Lorem
-              </p>
-            </div>
-
-            <div class="post">
-                <a href="" class="is-size-4 is-centered postTitle">Lorem ipsum.</a>
-              <p>
-                Lorem 
-              </p>
-            </div>
+            {{/each}}
+           
           </div>
         </div>
       </div>
