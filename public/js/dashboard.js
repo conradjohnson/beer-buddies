@@ -84,9 +84,38 @@ const addCommentHandler = async (event) => {
       }
     }
 
-
-  
 };
+
+const drankCheckHandler = async(event)=>{
+  event.preventDefault();
+ 
+  let beerlist_id = event.target.getAttribute('data-id');
+  alert(event.target.checked);
+  
+  if (event.target.checked) {
+    alert("Beer List Check" + beerlist_id)
+    const response = await fetch(`/api/beerlist/${beerlist_id}`, {
+      method: 'PUT',
+      body: JSON.stringify({ drank:event.target.checked }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      alert('Failed to create project');
+    }
+  }
+
+}
+
+// drink checklist
+const drankChecks = document.querySelectorAll('.drank-check');
+for (let i=0; i<drankChecks.length; i++){
+  drankChecks[i].addEventListener('change', drankCheckHandler);
+}
 
 //event listener for submitting a new blog post.
 document
@@ -94,19 +123,21 @@ document
   .addEventListener('submit', newPostHandler);
 
 // event listener for the submit comment button.
-document
-  .querySelector('.new-comment-form')
-  .addEventListener('submit', addCommentHandler);
+// document
+//   .querySelector('.new-comment-form')
+//   .addEventListener('submit', addCommentHandler);
 
-// event listeners for all of the delete buttons for blog posts.
-const deleteButtons = document.querySelectorAll('.delete-post-button');
-for (let i=0; i< deleteButtons.length; i++){
-  deleteButtons[i].addEventListener('click', delButtonHandler);
-}
 
-// event listeners for all of the edit buttons for blog posts.
-const editButtons = document.querySelectorAll('.edit-post-button');
-for (let i=0; i< editButtons.length; i++){
-  editButtons[i].addEventListener('click', editButtonHandler);
-}
+
+// // event listeners for all of the delete buttons for blog posts.
+// const deleteButtons = document.querySelectorAll('.delete-post-button');
+// for (let i=0; i< deleteButtons.length; i++){
+//   deleteButtons[i].addEventListener('click', delButtonHandler);
+// }
+
+// // event listeners for all of the edit buttons for blog posts.
+// const editButtons = document.querySelectorAll('.edit-post-button');
+// for (let i=0; i< editButtons.length; i++){
+//   editButtons[i].addEventListener('click', editButtonHandler);
+// }
   
