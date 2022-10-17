@@ -37,6 +37,7 @@ async function getBeerLocs(city_st){
     await fetch(remoteEndPoint2)
     .then(function (response) {
         if (response.status===200){
+          //  console.log(response.json());
             return response.json();
         } else {
             console.log('here:' + response.text());
@@ -49,6 +50,6 @@ async function getBeerLocs(city_st){
     
 }
 
-getBeerLocs("los angeles,ca");
+//getBeerLocs("los angeles,ca");
 getBeerLocs("dallas,tx");
 getBeerLocs("plano,tx");
