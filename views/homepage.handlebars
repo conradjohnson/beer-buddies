@@ -35,9 +35,7 @@
           <hr />
           <ol class="leaderboard ml-6 checklist">
             {{#each leaderboardList as |listitem|}}
-              {{setVariable "rank" (add_one @index)}}
-              {{setVariable "1st" (is_one rank)}}
-              <li id="{{#if 1st}}topDog{{/if}}">{{listitem.user}} - {{listitem.drank_beers}}/{{listitem.total_beers}}</li>
+              <li id="{{is_one @index}}{{is_two @index}}{{is_three @index}}">{{listitem.user}} - {{listitem.drank_beers}}/{{listitem.total_beers}}</li>
             {{/each}}
            <!-- <li id="secondDog">James Johnson - 11/18</li>
             <li id="thirdDog">Austin Moore - 10/18</li> -->
