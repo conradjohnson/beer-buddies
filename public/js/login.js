@@ -36,7 +36,6 @@ const signupFormHandler = async (event) => {
   const zip = document.querySelector('#zip-signup').value.trim();
 
   alert(` address1 ${address1}
-          address2 ${address2}
           city ${city}
           state ${state}
           zip ${zip}`);
@@ -46,7 +45,7 @@ const signupFormHandler = async (event) => {
     console.log('all passed!')
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ name, email, username, password }),
+      body: JSON.stringify({ name, email, username, password, address1, city, state, zip }),
       headers: { 'Content-Type': 'application/json' },
     });
     console.log('here again!')

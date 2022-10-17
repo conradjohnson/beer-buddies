@@ -29,11 +29,6 @@ User.init(
       allowNull: false,
       defaultValue: ""
     },
-    address2: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: "",
-    },
     city: {
       type: DataTypes.STRING,
       defaultValue: "",
