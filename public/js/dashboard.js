@@ -78,15 +78,44 @@ const addCommentHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.reload();
+        document.location.replace('/dashboard');
       } else {
         alert('Failed to create project');
       }
     }
 
-
-  
 };
+
+const drankCheckHandler = async(event)=>{
+  event.preventDefault();
+ 
+  let beerlist_id = event.target.getAttribute('data-id');
+  alert(event.target.checked);
+  
+  
+    alert("Beer List Check" + beerlist_id)
+    const response = await fetch(`/api/beerlist/${beerlist_id}`, {
+      method: 'PUT',
+      body: JSON.stringify({ drank:event.target.checked }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      alert('Failed to create project');
+    }
+  
+
+}
+
+// drink checklist
+const drankChecks = document.querySelectorAll('.drank-check');
+for (let i=0; i<drankChecks.length; i++){
+  drankChecks[i].addEventListener('change', drankCheckHandler);
+}
 
 //event listener for submitting a new blog post.
 document
@@ -98,15 +127,44 @@ document
   .querySelector('.new-comment-form')
   .addEventListener('submit', addCommentHandler);
 
-// event listeners for all of the delete buttons for blog posts.
-const deleteButtons = document.querySelectorAll('.delete-post-button');
-for (let i=0; i< deleteButtons.length; i++){
-  deleteButtons[i].addEventListener('click', delButtonHandler);
-}
 
-// event listeners for all of the edit buttons for blog posts.
-const editButtons = document.querySelectorAll('.edit-post-button');
-for (let i=0; i< editButtons.length; i++){
-  editButtons[i].addEventListener('click', editButtonHandler);
-}
+
+// // event listeners for all of the delete buttons for blog posts.
+// const deleteButtons = document.querySelectorAll('.delete-post-button');
+// for (let i=0; i< deleteButtons.length; i++){
+//   deleteButtons[i].addEventListener('click', delButtonHandler);
+// }
+
+// // event listeners for all of the edit buttons for blog posts.
+// const editButtons = document.querySelectorAll('.edit-post-button');
+// for (let i=0; i< editButtons.length; i++){
+//   editButtons[i].addEventListener('click', editButtonHandler);
+// }
+
+//for dashboard tabs:
+let checklistEl = document.querySelector("#beerChecklist")
+let leaderboardEl = document.querySelector("#beerLeaderboard")
+let postsEl = document.querySelector("#latestPosts")
+let clButtonEl = document.querySelector("#clButton")
+let lpButtonEl = document.querySelector("#lpButton")
+let lbButtonEl = document.querySelector("#lbButton")
+
+clButtonEl.addEventListener("click", toggleChecklist);
+function toggleChecklist() {
+    checklistEl.setAttribute("class", "");
+    leaderboardEl.setAttribute("class", "hidden");
+    postsEl.setAttribute("class", "hidden");
+  }
+  lpButtonEl.addEventListener("click", togglePost);
+function togglePost() {
+    checklistEl.setAttribute("class", "hidden");
+    leaderboardEl.setAttribute("class", "hidden");
+    postsEl.setAttribute("class", "");
+  }
+  lbButtonEl.addEventListener("click", toggleLeaderboard);
+function toggleLeaderboard() {
+    checklistEl.setAttribute("class", "hidden");
+    leaderboardEl.setAttribute("class", "");
+    postsEl.setAttribute("class", "hidden");
+  }
   
