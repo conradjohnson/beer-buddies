@@ -30,8 +30,8 @@ profile stuff here
             </div>
             <div class="column">
               <h3 class="is-size-4 userName">{{name}}</h3>
-              <h3 class="is-size-4 userName">Username: Funky Brewster</h3>
-              <h3 class="is-size-4 userName">Hometown: Dallas</h3>
+              <h3 class="is-size-4 userName">{{username}}</h3>
+              <h3 class="is-size-4 userName">{{city}}</h3>
             </div>
             <div class="column favBeers">
               <ul class="is-size-4 favBeers">
@@ -63,20 +63,22 @@ profile stuff here
             </thead>
 
             <tbody>
+              {{#each beersList as |drink| }}
               <tr>
-                <th>1</th>
+                <th>{{add_one @index}}</th>
                 <td>{{drink.beer.name}}</td>
-                <td>Beak & Skiff Apple Orchards</td>
-                <td>Lafayette, NY</td>
+                <td>{{drink.beer.brewery}}</td>
+                <td>{{drink.beer.brewloc}}</td>
                 <td>{{drink.beer.type}}</td>
-                <td>7.5%</td>
+                <td>{{drink.beer.abv}}</td>
                 <td>
                   <label class="checkbox">
-                    <input type="checkbox" />
+                    <input type="checkbox" readonly />
                     Ya drank?{{drink.drank}}
                   </label>
                 </td>
               </tr>
+              {{/each}}
             </tbody>
           </table>
         </div>
