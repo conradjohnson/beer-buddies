@@ -84,7 +84,7 @@
               <div class="field">
                 <label for="" class="label">Address</label>
                 <div class="control has-icons-left">
-                  <input type="text" placeholder="e.g. Carrollton TX, 75006" class="input" required>
+                  <input type="text" placeholder="e.g. Carrollton TX, 75006" class="input" id="autocomplete" required>
                   <span class="icon is-small is-left">
                     <i class="fa fa-envelope"></i>
                   </span>
@@ -100,7 +100,10 @@
                 </div>
               </div>
               <div class="field">
-                
+                <input type="hidden" id="address1-signup" value=""/>
+                <input type="hidden" id="city-signup" value=""/>
+                <input type="hidden" id="state-signup" value=""/>
+                <input type="hidden" id="zip-signup" value=""/>
                 <button class="button" type="submit">
                   Sign up
                 </button>
@@ -115,6 +118,9 @@
 <!--end login body-->
 </div>
 <script src="./js/login.js"></script>
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyfKCmxQxrQqrFnDgMSmj6xxhLnIkbuh8&libraries=places&callback=initAutocomplete">
+   </script>
 
 
 

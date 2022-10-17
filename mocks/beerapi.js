@@ -49,6 +49,6 @@ async function getBeerLocs(city_st){
     
 }
 
-//getBeerLocs("los angeles, ca");
+getBeerLocs("los angeles,ca");
 getBeerLocs("dallas,tx");
 getBeerLocs("plano,tx");
