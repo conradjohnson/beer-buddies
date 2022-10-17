@@ -168,3 +168,200 @@ function toggleLeaderboard() {
     postsEl.setAttribute("class", "hidden");
   }
   
+
+// Beer API Stuff
+
+
+const api_key = 'dd603422fbd601248edcb80d08b961b9';
+// http://beermapping.com/webservice/locquery/API_KEY/piece
+
+
+async function getBeerLocs(city_st){
+    city_st = encodeURIComponent(city_st);
+    let remoteEndPoint2 = `http://beermapping.com/webservice/loccity/${api_key}/${city_st}&s=json`;
+    
+    await fetch(remoteEndPoint2)
+    .then(function (response) {
+        if (response.status===200){
+            //console.log(response.body);
+            return response.json();
+        } else {
+            console.log('here:' + response.text());
+            //const 
+            return response.text();
+        }
+
+    })
+   
+    
+}
+
+// examples
+//getBeerLocs("los angeles,ca");
+//getBeerLocs("dallas,tx");
+
+async function getLatLon(address){
+  let geocoder = new google.maps.Geocoder();
+  geocoder.geocode( {address:address}, function(results, status) 
+  {
+    if (status == google.maps.GeocoderStatus.OK) 
+    {
+      return results[0].geometry.location;
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+   }
+  })
+}
+
+async function getMapMarkers(city_st){
+    let beerLocs = await getBeerLocs(city_st);
+    console.log('beer locs!' + beerLocs);
+    
+    for (let i=0; i< beerLocs.length; i++){
+      let latlon = await getLatLon(`${element.street} ${element.city}, ${element.state}`);
+      console.log(latlon);
+    }
+
+    //first, get the lat/lon of the city/st combo. 
+      // beerLocs = beerLocs.map((element)=>{
+        
+      //   console.log(latlon);
+      // });
+    return beerLocs;
+}
+
+//Google Maps stuff
+let map;
+
+async function initMap() {
+  console.log("here:");
+  let user_cityst_el = document.getElementById('user-citystmap').value;
+  let user_cityst = String(user_cityst_el).toLowerCase();
+  console.log("here:"+user_cityst);
+  
+  console.log(user_cityst);
+  let user_loc = {
+    lat: parseFloat(document.getElementById('user-lat').value), 
+    lng: parseFloat(document.getElementById('user-lon').value)
+  };
+  console.log("latlongparsed" + user_loc.lat + user_loc.lng);
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: user_loc,
+    zoom: 10
+  });
+
+  //lets try to get beer locs from map markers function.
+  const mapMarkers = await getMapMarkers(user_cityst);
+  console.log(mapMarkers);
+  const iconBase =
+    "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
+  const icons = {
+    beer: {
+      icon: "../img/beerlogo_small.png",
+    },
+    library: {
+      icon: iconBase + "library_maps.png",
+    },
+    info: {
+      icon: iconBase + "info-i_maps.png",
+    },
+  };
+  const features = [
+    {
+      position: new google.maps.LatLng(-33.91721, 151.2263),
+      type: "info",
+    },
+    {
+      position: new google.maps.LatLng(-33.91539, 151.2282),
+      type: "info",
+    },
+    {
+      position: new google.maps.LatLng(-33.91747, 151.22912),
+      type: "info",
+    },
+    {
+      position: new google.maps.LatLng(-33.9191, 151.22907),
+      type: "info",
+    },
+    {
+      position: new google.maps.LatLng(-33.91725, 151.23011),
+      type: "info",
+    },
+    {
+      position: new google.maps.LatLng(-33.91872, 151.23089),
+      type: "info",
+    },
+    {
+      position: new google.maps.LatLng(-33.91784, 151.23094),
+      type: "info",
+    },
+    {
+      position: new google.maps.LatLng(-33.91682, 151.23149),
+      type: "info",
+    },
+    {
+      position: new google.maps.LatLng(-33.9179, 151.23463),
+      type: "info",
+    },
+    {
+      position: new google.maps.LatLng(-33.91666, 151.23468),
+      type: "info",
+    },
+    {
+      position: new google.maps.LatLng(-33.916988, 151.23364),
+      type: "info",
+    },
+    {
+      position: new google.maps.LatLng(-33.91662347903106, 151.22879464019775),
+      type: "beer",
+    },
+    {
+      position: new google.maps.LatLng(-33.916365282092855, 151.22937399734496),
+      type: "beer",
+    },
+    {
+      position: new google.maps.LatLng(-33.91665018901448, 151.2282474695587),
+      type: "beer",
+    },
+    {
+      position: new google.maps.LatLng(-33.919543720969806, 151.23112279762267),
+      type: "beer",
+    },
+    {
+      position: new google.maps.LatLng(-33.91608037421864, 151.23288232673644),
+      type: "beer",
+    },
+    {
+      position: new google.maps.LatLng(-33.91851096391805, 151.2344058214569),
+      type: "beer",
+    },
+    {
+      position: new google.maps.LatLng(-33.91818154739766, 151.2346203981781),
+      type: "beer",
+    },
+    {
+      position: new google.maps.LatLng(-33.91727341958453, 151.23348314155578),
+      type: "library",
+    },
+  ];
+
+  // Create markers.
+  for (let i = 0; i < features.length; i++) {
+    const marker = new google.maps.Marker({
+      position: features[i].position,
+      icon: icons[features[i].type].icon,
+      map: map,
+    });
+  }
+}
+function init(){
+  //get user location from dashboard
+  let location = String(document.querySelector('#user-cityst').value);
+  location =  location.toLowerCase();
+  let lat = document.querySelector('#user-lat').value;
+  let lon = document.querySelector('#user-lon').value;
+  window.initMap = initMap;
+  //populateAll();
+}
+
+init()

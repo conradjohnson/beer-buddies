@@ -10,7 +10,7 @@
         <div class="column">
           <h3 class="is-size-4 userName">Name: {{name}}</h3>
           <h3 class="is-size-4 userName">Username: {{username}}</h3>
-          <h3 class="is-size-4 userName">Hometown: {{city}}</h3>
+          <h3 class="is-size-4 userName">Hometown: <span id="user-cityst" value="{{city}},{{state}}">{{city}}, {{state}}</span></h3>
         </div>
       </div>
     </div>
@@ -22,7 +22,20 @@
         Near Beer
       </h1>
       
-      <img src="/img/beerMap.jpg" alt="beer map" class="beerMap has-text-centered">
+      <div id="map"></div>
+      <input type="hidden" id="user-lat" value="{{lat}}" />
+      <input type="hidden" id="user-lon" value="{{lon}}" />
+       <input type="hidden" id="user-citystmap" value="{{city}},{{state}}" />
+    <!-- 
+     The `defer` attribute causes the callback to execute after the full HTML
+     document has been parsed. For non-blocking uses, avoiding race conditions,
+     and consistent behavior across browsers, consider loading using Promises
+     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+    -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyfKCmxQxrQqrFnDgMSmj6xxhLnIkbuh8&callback=initMap&v=weekly"
+      defer
+    ></script>
     </div>
     <div class="column ">
       <h1 class="is-size-3 has-text-centered nearBeer">
