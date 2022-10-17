@@ -78,7 +78,7 @@ const addCommentHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.reload();
+        document.location.replace('/dashboard');
       } else {
         alert('Failed to create project');
       }
@@ -92,7 +92,7 @@ const drankCheckHandler = async(event)=>{
   let beerlist_id = event.target.getAttribute('data-id');
   alert(event.target.checked);
   
-  if (event.target.checked) {
+  
     alert("Beer List Check" + beerlist_id)
     const response = await fetch(`/api/beerlist/${beerlist_id}`, {
       method: 'PUT',
@@ -107,7 +107,7 @@ const drankCheckHandler = async(event)=>{
     } else {
       alert('Failed to create project');
     }
-  }
+  
 
 }
 
@@ -123,9 +123,9 @@ document
   .addEventListener('submit', newPostHandler);
 
 // event listener for the submit comment button.
-// document
-//   .querySelector('.new-comment-form')
-//   .addEventListener('submit', addCommentHandler);
+document
+  .querySelector('.new-comment-form')
+  .addEventListener('submit', addCommentHandler);
 
 
 
@@ -140,4 +140,31 @@ document
 // for (let i=0; i< editButtons.length; i++){
 //   editButtons[i].addEventListener('click', editButtonHandler);
 // }
+
+//for dashboard tabs:
+let checklistEl = document.querySelector("#beerChecklist")
+let leaderboardEl = document.querySelector("#beerLeaderboard")
+let postsEl = document.querySelector("#latestPosts")
+let clButtonEl = document.querySelector("#clButton")
+let lpButtonEl = document.querySelector("#lpButton")
+let lbButtonEl = document.querySelector("#lbButton")
+
+clButtonEl.addEventListener("click", toggleChecklist);
+function toggleChecklist() {
+    checklistEl.setAttribute("class", "");
+    leaderboardEl.setAttribute("class", "hidden");
+    postsEl.setAttribute("class", "hidden");
+  }
+  lpButtonEl.addEventListener("click", togglePost);
+function togglePost() {
+    checklistEl.setAttribute("class", "hidden");
+    leaderboardEl.setAttribute("class", "hidden");
+    postsEl.setAttribute("class", "");
+  }
+  lbButtonEl.addEventListener("click", toggleLeaderboard);
+function toggleLeaderboard() {
+    checklistEl.setAttribute("class", "hidden");
+    leaderboardEl.setAttribute("class", "");
+    postsEl.setAttribute("class", "hidden");
+  }
   
