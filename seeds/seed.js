@@ -10,15 +10,23 @@ const beerlistData = require('./beerlistData.json');
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
-  const users = await User.bulkCreate(userData, {
-    individualHooks: true,
-    returning: true,
-  });
+  for (const user of userData){
+    await User.create ({
+      ...user
+    }, {
+      individualHooks: true,
+      returning: true
+    })
+  }
+  // const users = await User.bulkCreate(userData, {
+  //   individualHooks: true,
+  //   returning: true,
+  // });
   
   for (const post of postData) {
     await Post.create({
       ...post,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
+      user_id: 1,
     });
   }
   const comments = await Comment.bulkCreate(commentData,{

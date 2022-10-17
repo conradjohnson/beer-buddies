@@ -24,13 +24,22 @@ module.exports = {
     return (numSent+1);
   },
   is_one:(num)=>{
-    return (num===1);
+    if (num===0){
+      return "topDog";
+    }
+    return;
   }, 
   is_two:(num)=>{
-    return (num===2);
+    if (num===1){
+      return "secondDog";
+    }
+    return;
   },
   is_three:(num)=>{
-    return (num===3);
+    if (num===2){
+      return "thirdDog";
+    }
+    return;
   },
   setVariable: (varName, varValue, options)=>{
     options.data.root[varName] = varValue;

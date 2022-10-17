@@ -26,9 +26,11 @@
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
     "expressjs": "^1.0.1",
+    "fs": "^0.0.1-security",
     "moment": "^2.29.4",
     "momentjs": "^2.0.0",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.25.0"
+    "sequelize": "^6.25.0",
+    "xml2js": "^0.4.23"
   }
 }
