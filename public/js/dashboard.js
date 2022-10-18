@@ -129,6 +129,13 @@ document
   .addEventListener('submit', addCommentHandler);
 }
 
+function showStuff(show, hide) {
+  //show this element by id
+  document.getElementById(show).style.display = 'block';
+  //hide this element by id
+  document.getElementById(hide).style.display = 'none';
+
+}
 
 // // event listeners for all of the delete buttons for blog posts.
 // const deleteButtons = document.querySelectorAll('.delete-post-button');
@@ -214,20 +221,39 @@ function sleep(milliseconds) {
 }
 
 async function getLatLon(address){
-  let geocoder = new google.maps.Geocoder();
+
+  address = encodeURIComponent(address);
+  
+  let geocoderURL = `https://api.geoapify.com/v1/geocode/search?`;
+  geocoderURL += `text=${address}`;
+  geocoderURL+= `&apiKey=32ac8da8e41545e2864a4185e4f42472`;
   let latLonString = "";
-  let result = await geocoder.geocode( {address:address}, function(results, status) 
-  {
-    if (status == google.maps.GeocoderStatus.OK) 
-    {
-      // 
-      latLonString = `${results[0].geometry.location.lat()},${results[0].geometry.location.lng()}`
-      sleep(200);
-      return latLonString;
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-   }
-  })
+
+  let results = await fetch(geocoderURL)
+  .then(response => response.json())
+  .then(result => {
+    console.log(result.features[0])
+    latLonString = result.features[0].geometry.coordinates[1] + "," + result.features[0].geometry.coordinates[0];
+
+  }
+    )
+  .catch(error => console.log('error', error));
+  
+  // Old Google Geocoder that rate limited us after 1 day of use
+  // ************************************************************
+  //let geocoder = new google.maps.Geocoder();
+  // let result = await geocoder.geocode( {address:address}, function(results, status) 
+  // {
+  //   if (status == google.maps.GeocoderStatus.OK) 
+  //   {
+  //     // 
+  //     latLonString = `${results[0].geometry.location.lat()},${results[0].geometry.location.lng()}`
+  //     sleep(200);
+  //     return latLonString;
+  //   } else {
+  //     alert('Geocode was not successful for the following reason: ' + status);
+  //  }
+  // })
 
   return latLonString;
 }
