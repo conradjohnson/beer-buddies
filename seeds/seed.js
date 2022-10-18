@@ -8,8 +8,19 @@ const beerData = require('./beerData.json');
 const beerlistData = require('./beerlistData.json');
 
 const seedDatabase = async () => {
-  await sequelize.sync({ force: true });
-
+ // await sequelize.sync({ force: true });
+ await sequelize.query('SET FOREIGN_KEY_CHECKS = 0')
+ .then(function(){
+     return db.sync({ force: true });
+ })
+ .then(function(){
+     return db.query('SET FOREIGN_KEY_CHECKS = 1')
+ })
+ .then(function(){
+     console.log('Database synchronised.');
+ }, function(err){
+     console.log(err);
+ });
   // for (const user of userData){
   //   await User.create ({
   //     ...user
