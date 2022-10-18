@@ -154,4 +154,4 @@ const xml2json = (xml, tab) => {
     return "{\n" + tab + (tab ? json.replace(/\t/g, tab) : json.replace(/\t|\n/g, "")) + "\n}";
  }
 
- module.exports = xml2json;
+
