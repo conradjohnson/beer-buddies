@@ -90,10 +90,10 @@ const drankCheckHandler = async(event)=>{
   event.preventDefault();
  
   let beerlist_id = event.target.getAttribute('data-id');
-  alert(event.target.checked);
+ 
   
   
-    alert("Beer List Check" + beerlist_id)
+    
     const response = await fetch(`/api/beerlist/${beerlist_id}`, {
       method: 'PUT',
       body: JSON.stringify({ drank:event.target.checked }),
@@ -103,7 +103,7 @@ const drankCheckHandler = async(event)=>{
     });
 
     if (response.ok) {
-      document.location.reload();
+      
     } else {
       alert('Failed to create project');
     }
@@ -123,10 +123,11 @@ document
   .addEventListener('submit', newPostHandler);
 
 // event listener for the submit comment button.
+if (document.querySelector('.new-comment-form')){
 document
   .querySelector('.new-comment-form')
   .addEventListener('submit', addCommentHandler);
-
+}
 
 
 // // event listeners for all of the delete buttons for blog posts.
@@ -168,3 +169,182 @@ function toggleLeaderboard() {
     postsEl.setAttribute("class", "hidden");
   }
   
+
+// Beer API Stuff
+
+
+const api_key = 'dd603422fbd601248edcb80d08b961b9';
+// http://beermapping.com/webservice/locquery/API_KEY/piece
+
+
+async function getBeerLocs(city_st){
+    city_st = encodeURIComponent(city_st);
+    let remoteEndPoint2 = `http://beermapping.com/webservice/loccity/${api_key}/${city_st}&s=json`;
+    
+    let results = await fetch(remoteEndPoint2)
+    .then(function (response) {
+        if (response.status===200){
+            
+            return response.json();
+        } else {
+            
+            //const 
+            return response.text();
+        }
+
+    })
+    .then(function (data) {
+      
+       return data
+     })
+    return results;
+   
+    
+}
+
+// examples
+//getBeerLocs("los angeles,ca");
+//getBeerLocs("dallas,tx");
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+
+async function getLatLon(address){
+  let geocoder = new google.maps.Geocoder();
+  let latLonString = "";
+  let result = await geocoder.geocode( {address:address}, function(results, status) 
+  {
+    if (status == google.maps.GeocoderStatus.OK) 
+    {
+      // 
+      latLonString = `${results[0].geometry.location.lat()},${results[0].geometry.location.lng()}`
+      sleep(200);
+      return latLonString;
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+   }
+  })
+
+  return latLonString;
+}
+
+async function getMapMarkers(city_st){
+    const beerLocs  = await getBeerLocs(city_st);
+   
+    const beerMarkers = [];
+    for (let i=0; i< beerLocs.length; i++){
+      let latlon = await getLatLon(`${beerLocs[i].street} ${beerLocs[i].city}, ${beerLocs[i].state}`);
+      //latlon = JSON.parse(latlon);
+      let latlonArray = latlon.split(",");
+      let lat = latlonArray[0];
+      let lng = latlonArray[1];
+      let latlonObj= {lat, lng};
+      let infoWindowContent = `
+      <div id="content">
+        <h1 id="firstHeading" class="firstHeading">${beerLocs[i].name}</h1>
+        <div id="bodyContent">Located at:<br/>
+        ${beerLocs[i].street}<br/>
+        ${beerLocs[i].city}, ${beerLocs[i].state}<br/>
+        <br/>
+        URL: <a href="http://${beerLocs[i].url}" target="_blank">${beerLocs[i].url}<br/>
+
+        </div>
+      </div>
+      `;
+      let obj = {
+        position: new google.maps.LatLng(lat, lng),
+        type: "beer",
+        name: beerLocs[i].name,
+        street: beerLocs[i].street, 
+        city: beerLocs[i].city,
+        state: beerLocs[i].state,
+        url: beerLocs[i].url,
+        infoWindowContent: infoWindowContent,
+
+      }
+     
+      beerMarkers.push(obj);
+    }
+
+    
+    return beerMarkers;
+}
+
+//Google Maps stuff
+let map;
+
+async function initMap() {
+  
+  let user_cityst_el = document.getElementById('user-citystmap').value;
+  let user_cityst = String(user_cityst_el).toLowerCase();
+  
+  let user_loc = {
+    lat: parseFloat(document.getElementById('user-lat').value), 
+    lng: parseFloat(document.getElementById('user-lon').value)
+  };
+ 
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: user_loc,
+    zoom: 11
+  });
+
+  //lets try to get beer locs from map markers function.
+  const mapMarkers = await getMapMarkers(user_cityst);
+  
+  const iconBase =
+    "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
+  const icons = {
+    beer: {
+      icon: "../img/beerlogo_small.png",
+    },
+    
+  };
+  const features = mapMarkers;
+  
+  let marker;
+  let infoWindowContent;
+  let infoWindow; 
+  // Create markers.
+  for (let i = 0; i < features.length; i++) {
+    
+      infoWindow = new google.maps.InfoWindow({
+        content: infoWindowContent,
+      });
+      marker = new google.maps.Marker({
+        position: features[i].position,
+        icon: icons.beer.icon,
+        map: map,
+      });
+      // marker.addListener("click", () => {
+      //   infoWindow.open({
+      //     anchor: marker,
+      //     map,
+      //     shouldFocus: false,
+      //   });
+      // });
+  
+      (function (marker) {
+        google.maps.event.addListener(marker, "click", function (e) {
+            //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
+            infoWindow.setContent(features[i].infoWindowContent);
+            infoWindow.open(map, marker);
+        });
+    })(marker);
+
+  }
+}
+function init(){
+  //get user location from dashboard
+  let location = String(document.querySelector('#user-cityst').value);
+  location =  location.toLowerCase();
+  let lat = document.querySelector('#user-lat').value;
+  let lon = document.querySelector('#user-lon').value;
+  window.initMap = initMap;
+  //populateAll();
+}
+
+init()

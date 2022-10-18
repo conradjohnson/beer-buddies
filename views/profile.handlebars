@@ -6,7 +6,7 @@
           <div class="columns">
             <div class="column">
               <img
-                src="img/me.jpg"
+                src="/img/profile.png"
                 alt="profile pic"
                 style="max-height: 200px"
                 class="pic"
@@ -49,9 +49,9 @@
                 <td>{{drink.beer.type}}</td>
                 <td>{{drink.beer.abv}}</td>
                 <td>
-                  <label class="checkbox">
-                    <input type="checkbox" readonly />
-                    Ya drank?{{drink.drank}}
+                  <label class="checkbox" style="">
+                    <input type="checkbox"  disabled="disabled" {{#if drink.drank}}style="accent-color:#0000FF" checked{{/if}}/>
+                    Ya drank?
                   </label>
                 </td>
               </tr>

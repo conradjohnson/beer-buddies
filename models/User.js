@@ -42,6 +42,16 @@ User.init(
       allowNull: false,
       defaultValue: "",
     },
+    lat: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "",
+    },
+    lon: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "",
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
