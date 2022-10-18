@@ -4,14 +4,23 @@ const { route } = require('../homeRoutes');
 const upload = require('./uploadMiddleware');
 const resize = require('./resize');
 
-router.post('/img', upload.single('image'), async function (req, res) {
+router.post('/img',  upload.single('image'), async function (req, res) {
   await console.log('post');
+
+
+
   const imagePath = path.join(__dirname, '/img/profile');
   const fileUpload = new Resize(imagePath);
   if (!req.file) {
     res.status(401).json({error: 'Please provide an image'});
   }
   const filename = await fileUpload.save(req.file.buffer);
+  //update user record
+  const user_id = req.session.user_id;
+  const userData = await User.findOne({ where: { id: userId } });
+  const user = userData.get({ plain: true });
+  return user.username;
+
   return res.status(200).json({ name: filename });
 });
 
