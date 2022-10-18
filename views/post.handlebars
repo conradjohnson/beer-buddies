@@ -18,17 +18,18 @@
 
 {{#if logged_in}}
 
-<article class="media mt-1">
+<form class="media mt-1">
   <div class="media-content">
     <div class="field">
       <p class="control">
-        <textarea class="textarea" placeholder="Add a comment..."></textarea>
+        <input type="hidden" id="post-id" value="{{post.id}}" />
+        <textarea class="textarea" id="comment-body" placeholder="Add a comment..."></textarea>
       </p>
     </div>
     <nav class="level">
       <div class="level-left">
         <div class="level-item">
-          <a class="button">Submit</a>
+          <button type="submit" class="button">Submit</button>
         </div>
       </div>
       <div class="level-right">
@@ -36,9 +37,10 @@
       </div>
     </nav>
   </div>
-</article>
+</form>
 
 {{else}}
   <a href="/login">Log in or sign up to comment</a>
 {{/if}}
 
+<script src="./js/post.js"></script>
