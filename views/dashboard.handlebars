@@ -20,7 +20,7 @@ dash stuff here
 {{/each}}
 
 {{#each beersList as |drink| }}
-   <p> {{drink.id}} {{drink.beer.name}} - {{drink.beer.type}} - is drank: {{drink.drank}}</p>
+   <p> {{drink.id}} {{drink.beer.name}} - {{drink.beer.type}} - is drank: <input type="checkbox" class="drank-check" {{#if drink.drank}}checked{{/if}} data-id="{{drink.id}}"/></p>
     
 {{/each}}
 
