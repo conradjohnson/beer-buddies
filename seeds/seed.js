@@ -11,10 +11,10 @@ const seedDatabase = async () => {
  // await sequelize.sync({ force: true });
  await sequelize.query('SET FOREIGN_KEY_CHECKS = 0')
  .then(function(){
-     return db.sync({ force: true });
+     return sequelize.sync({ force: true });
  })
  .then(function(){
-     return db.query('SET FOREIGN_KEY_CHECKS = 1')
+     return sequelize.query('SET FOREIGN_KEY_CHECKS = 1')
  })
  .then(function(){
      console.log('Database synchronised.');
