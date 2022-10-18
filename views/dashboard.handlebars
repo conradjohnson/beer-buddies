@@ -6,8 +6,17 @@
       <div class="columns">
         <div class="column">
           
-          <img src="img/profile/{{img}}" alt="profile pic" style="max-height: 200px" class="pic mb-4" />
-          
+            <img src="img/profile/{{img}}" alt="profile pic" style="max-height: 200px" class="pic" /><br/>
+            <div class="column mb-4 pic pl-5">
+              <a href="#" onclick="showStuff('profile-image-form','change-image-link' )" id="change-image-link" class="is-size-7">Update Pofile Photo</a>
+              <span id="profile-image-form" style="display:none">
+                <form method="post" action="api/users/img" enctype="multipart/form-data" id="image-upload-form">
+                  <input type="file" name="image" /><br /><br />
+                  <button type="submit" name="upload">Upload</button>
+                </form>
+                <a href="#" id="cancel-image-link" onclick="showStuff('change-image-link', 'profile-image-form')">cancel</a>
+              </span>
+            </div>
         </div>
         <div class="column">
           <h3 class="is-size-4 userName">Name: {{name}}</h3>

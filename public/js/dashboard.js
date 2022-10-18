@@ -262,7 +262,7 @@ async function getMapMarkers(city_st){
     const beerLocs  = await getBeerLocs(city_st);
    
     const beerMarkers = [];
-    for (let i=0; i< beerLocs.length; i++){
+    for (let i=0; i< beerLocs.length && i < 10; i++){
       let latlon = await getLatLon(`${beerLocs[i].street} ${beerLocs[i].city}, ${beerLocs[i].state}`);
       //latlon = JSON.parse(latlon);
       let latlonArray = latlon.split(",");
