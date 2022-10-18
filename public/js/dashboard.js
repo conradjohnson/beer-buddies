@@ -129,6 +129,58 @@ document
   .addEventListener('submit', addCommentHandler);
 }
 
+
+
+const uploadPicHandler = async (event) => {
+  event.preventDefault();
+  const fileToUpload = document.querySelector('#image-file-input').value;
+  const upload = () => {
+    fetch('/api/users/img', { // Your POST endpoint
+      method: 'POST',
+      headers: {
+        // Content-Type may need to be completely **omitted**
+        // or you may need something
+        "Content-Type": "multipart/form-data"
+      },
+      body: fileToUpload // This is your file object
+    }).then(
+      response => response.json() // if the response is a JSON object
+    ).then(
+      success => {
+          console.log(success);
+          document.location.replace('/dashboard');
+       } // Handle the success response object
+    ).catch(
+      error => console.log(error) // Handle the error response object
+    );
+  };
+  upload();
+}
+  
+  
+  //event listener for picture submission
+// document
+// .querySelector('#image-upload-form')
+// .addEventListener('submit', uploadPicHandler);
+
+  // if (fileToUpload) {
+  //   const response = await fetch(`/api/users/img`, {
+  //     method: 'POST',
+  //     body: JSON.stringify({ title, body, author }),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   });
+
+  //   if (response.ok) {
+  //     document.location.replace('/dashboard');
+  //   } else {
+  //     alert('Failed to create post');
+  //   }
+  // }
+
+
+
 function showStuff(show, hide) {
   //show this element by id
   document.getElementById(show).style.display = 'block';
@@ -209,9 +261,7 @@ async function getBeerLocs(city_st){
     
 }
 
-// examples
-//getBeerLocs("los angeles,ca");
-//getBeerLocs("dallas,tx");
+
 function sleep(milliseconds) {
   const date = Date.now();
   let currentDate = null;

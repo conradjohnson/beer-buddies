@@ -10,8 +10,8 @@
             <div class="column mb-4 pic pl-5">
               <a href="#" onclick="showStuff('profile-image-form','change-image-link' )" id="change-image-link" class="is-size-7">Update Pofile Photo</a>
               <span id="profile-image-form" style="display:none">
-                <form method="post" action="api/users/img" enctype="multipart/form-data" id="image-upload-form">
-                  <input type="file" name="image" /><br /><br />
+                <form method="POST" action="/api/users/img" enctype="multipart/form-data" id="image-upload-form">
+                  <input type="file" name="image" id="image-file-input"/><br /><br />
                   <button type="submit" name="upload">Upload</button>
                 </form>
                 <a href="#" id="cancel-image-link" onclick="showStuff('change-image-link', 'profile-image-form')">cancel</a>

@@ -1,7 +1,7 @@
 // Resize.js
 
 const sharp = require('sharp');
-const uuidv4 = require('uuid');
+const {uuid} = require('uuidv4');
 const path = require('path');
 
 class Resize {
@@ -22,7 +22,8 @@ class Resize {
     return filename;
   }
   static filename() {
-    return `${uuidv4()}.png`;
+    let uid_str = uuid();
+    return `${uid_str}.png`;
   }
   filepath(filename) {
     return path.resolve(`${this.folder}/${filename}`)
