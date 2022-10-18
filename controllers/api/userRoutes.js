@@ -28,6 +28,7 @@ router.post('/', async (req, res) => {
     const newBeerList = await Beerlist.bulkCreate(beerList);
     req.session.save(() => {
       req.session.user_name = newUser.name;
+      req.session.username = newUser.username;
       req.session.user_id = newUser.id;
       req.session.logged_in = true;
       
@@ -65,6 +66,7 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.user_name = userData.name;
+      req.session.username = userData.username;
       req.session.user_id = userData.id;
       req.session.logged_in = true;
       
