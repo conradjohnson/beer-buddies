@@ -17,18 +17,19 @@
 {{/each}}
 
 {{#if logged_in}}
-
+<form class="new-comment-form">
 <article class="media mt-1">
   <div class="media-content">
     <div class="field">
       <p class="control">
-        <textarea class="textarea" placeholder="Add a comment..."></textarea>
+        <textarea class="textarea"  id="comment-body" name="comment-body" placeholder="Add a comment..."></textarea>
       </p>
     </div>
     <nav class="level">
       <div class="level-left">
         <div class="level-item">
-          <a class="button">Submit</a>
+          <input type="hidden" id="post-id" value="{{post.id}}" />
+          <button type="submit" class="button">Submit</button>
         </div>
       </div>
       <div class="level-right">
@@ -37,7 +38,8 @@
     </nav>
   </div>
 </article>
-
+</form>
+<script src="/js/post.js"></script>
 {{else}}
   <a href="/login">Log in or sign up to comment</a>
 {{/if}}

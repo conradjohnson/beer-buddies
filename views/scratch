@@ -1,4 +1,24 @@
 
+[{"id":45,
+"name":"Anheuser-Busch Inc - Newark",
+"status":"Brewery",
+"reviewlink":"https:\/\/beermapping.com\/location\/45",
+"proxylink":"http:\/\/beermapping.com\/maps\/proxymaps.php?locid=45&amp;d=5",
+"blogmap":"http:\/\/beermapping.com\/maps\/blogproxy.php?locid=45&amp;d=1&amp;type=norm",
+"street":"200 Us Highway 1 and 9",
+"city":"Newark",
+"state":"NJ",
+"zip":"7114","country":"United States",
+"phone":"(973) 645-7700",
+"url":"anheuser-busch.com","overall":"75.0001","imagecount":"0"},
+{"id":11169,"name":"Sam Adams Brewhouse - EWR airport","status":"Beer Bar",
+"reviewlink":"https:\/\/beermapping.com\/location\/11169",
+"proxylink":"http:\/\/beermapping.com\/maps\/proxymaps.php?locid=11169&amp;d=5",
+"blogmap":"http:\/\/beermapping.com\/maps\/blogproxy.php?locid=11169&amp;d=1&amp;type=norm",
+"street":"Terminal C near gate C112","city":"Newark","state":"NJ","zip":"07105","country":"United States","phone":"",
+"url":"samueladams.com","overall":"0","imagecount":"0"},{"id":11170,"name":"Sam Adams Pub - EWR airport","status":"Beer Bar","reviewlink":"https:\/\/beermapping.com\/location\/11170","proxylink":"http:\/\/beermapping.com\/maps\/proxymaps.php?locid=11170&amp;d=5","blogmap":"http:\/\/beermapping.com\/maps\/blogproxy.php?locid=11170&amp;d=1&amp;type=norm","street":"Terminal B near gate B51","city":"Newark","state":"NJ","zip":"07105","country":"United States","phone":"","url":"samueladams.com","overall":"0","imagecount":"0"},{"id":14590,"name":"MMM Bello's Pub","status":"Beer Bar","reviewlink":"https:\/\/beermapping.com\/location\/14590","proxylink":"http:\/\/beermapping.com\/maps\/proxymaps.php?locid=14590&amp;d=5","blogmap":"http:\/\/beermapping.com\/maps\/blogproxy.php?locid=14590&amp;d=1&amp;type=norm","street":"376 Market St","city":"Newark","state":"NJ","zip":"07105","country":"United States","phone":"(973) 465-0052","url":"","overall":"0","imagecount":"0"},{"id":16486,"name":"Edison Ale House","status":"Beer Bar","reviewlink":"https:\/\/beermapping.com\/location\/16486","proxylink":"http:\/\/beermapping.com\/maps\/proxymaps.php?locid=16486&amp;d=5","blogmap":"http:\/\/beermapping.com\/maps\/blogproxy.php?locid=16486&amp;d=1&amp;type=norm","street":"51 Edison Pl","city":"Newark","state":"NJ","zip":"07102","country":"United States","phone":"973-643-5560","url":"edisonalehouse.com","overall":"69.9999","imagecount":"0"},{"id":16496,"name":"Dinosaur Bar-B-Que - Newark","status":"Beer Bar","reviewlink":"https:\/\/beermapping.com\/location\/16496","proxylink":"http:\/\/beermapping.com\/maps\/proxymaps.php?locid=16496&amp;d=5","blogmap":"http:\/\/beermapping.com\/maps\/blogproxy.php?locid=16496&amp;d=1&amp;type=norm","street":"224 Market St.","city":"Newark","state":"NJ","zip":"07102","country":"United States","phone":"(862) 214-6100","url":"dinosaurbarbque.com","overall":"0","imagecount":"0"}]
+
+
 
 dash stuff here
 {{name}}
