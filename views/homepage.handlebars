@@ -34,14 +34,14 @@
                     <div class="field">
                        <label for="comment-body">Comment as {{../username}}:</label>
                       <p class="control">
-                        <textarea class="textarea"  id="comment-body" name="comment-body" placeholder="Add a comment..."></textarea>
+                        <textarea class="textarea"  id="comment-body-{{post.id}}" name="comment-body-{{post.id}}" placeholder="Add a comment..."></textarea>
                       </p>
                     </div>
                     <nav class="level">
                       <div class="level-left">
                         <div class="level-item">
                           <input type="hidden" id="post-id" value="{{post.id}}" />
-                          <button type="submit" class="button">Submit</button>
+                          <button type="submit" class="button" data-id="{{post.id}}">Submit</button>
                         </div>
                       </div>
                       <div class="level-right">

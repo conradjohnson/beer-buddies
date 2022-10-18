@@ -8,11 +8,11 @@ function showStuff(show, hide) {
 
 
 const addCommentHandler = async (event) => {
-    alert('clicked!');
+ 
     event.preventDefault();
-  
-    const body = await document.querySelector('#comment-body').value.trim();
-    const post_id = document.querySelector('#post-id').value;
+    const post_id = event.target.querySelector('#post-id').value;
+    const body = await event.target.querySelector(`#comment-body-${post_id}`).value.trim();
+    
     
     if (body && post_id) {
         const response = await fetch(`/api/posts/${post_id}/comment`, {
