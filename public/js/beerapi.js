@@ -23,7 +23,7 @@ async function getBeerLocs(city_st){
     })
     .then((data)=>{
         
-        console.log(xml2json(data))
+        //console.log(xml2json(data))
     });
     
 }

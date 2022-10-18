@@ -1,5 +1,32 @@
 const router = require('express').Router();
 const { User, Beer, Beerlist } = require('../../models');
+const { route } = require('../homeRoutes');
+const upload = require('./uploadMiddleware');
+const resize = require('./resize');
+const withAuth = require('../../utils/auth');
+const path = require('path');
+
+router.post('/img',  upload.single('image'), async function (req, res) {
+  await console.log('post');
+
+
+
+  const imagePath = path.join(__dirname,'../../public' + '/img/profile');
+  const fileUpload = new resize(imagePath);
+  //console.log("req file:" + req.file);
+  if (!req.file) {
+    res.status(401).json({error: 'Please provide an image'});
+  }
+  const filename = await fileUpload.save(req.file.buffer);
+  //update user record
+  const user_id = req.session.user_id;
+  const userData = await User.update({img: filename},{ where: { id: user_id } });
+ // const user = userData.get({ plain: true });
+  
+  return res.status(200).json({ name: filename });
+});
+
+
 
 router.post('/', async (req, res) => {
   console.log('new user attempt! name:' + req.body.name);
