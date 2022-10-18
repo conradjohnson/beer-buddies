@@ -12,11 +12,12 @@
           <h1 class="is-size-3 blog">Beer Blog</h1>
           <hr />
           {{#each posts as |post|}}
-          <div class="post">
+          <a href="/post/{{post.id}}"><div class="post">
             <p>
               {{post.author}} - {{post.body}}
             </p>
           </div>
+          </a>
             {{#each post.comments as |comment|}}
           <div class="comment ml-6 mr-6">
             <p>
@@ -24,7 +25,37 @@
             </p>
           </div>
             {{/each}}
-          <a href="" class="addComment">Add Comment</a>
+          <a href="#add-comment-link-{{post.id}}" onclick="showStuff('comment-{{post.id}}','add-comment-link-{{post.id}}' )" id="add-comment-link-{{post.id}}" class="addComment">Add Comment</a>
+          <span id="comment-{{post.id}}" style="display:none">
+              {{#if ../logged_in}}
+              <form class="hp-comment-form" method="post">
+                <article class="media mt-1">
+                  <div class="media-content">
+                    <div class="field">
+                       <label for="comment-body">Comment as {{../username}}:</label>
+                      <p class="control">
+                        <textarea class="textarea"  id="comment-body" name="comment-body" placeholder="Add a comment..."></textarea>
+                      </p>
+                    </div>
+                    <nav class="level">
+                      <div class="level-left">
+                        <div class="level-item">
+                          <input type="hidden" id="post-id" value="{{post.id}}" />
+                          <button type="submit" class="button">Submit</button>
+                        </div>
+                      </div>
+                      <div class="level-right">
+                        <div class="level-item"></div>
+                      </div>
+                    </nav>
+                  </div>
+                </article>
+              </form>
+              
+              {{else}}
+              Please <a href="/login">Login</a>to comment.
+              {{/if}}
+          </span>
           {{/each}}
           
           
@@ -44,3 +75,4 @@
         </div>
       </div>
     </section>
+    <script src="/js/index.js"></script>

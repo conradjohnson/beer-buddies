@@ -117,6 +117,7 @@ router.get('/',  async (req, res) => {
     // render homepage
     res.render('homepage', {
       posts, leaderboardList, users,
+      username: req.session.username,
       // this will tell the homepage the users object and the logged_in value of the 
       // req.session.logged_in tag. 
       logged_in: req.session.logged_in,
