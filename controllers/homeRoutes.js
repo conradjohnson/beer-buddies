@@ -12,7 +12,7 @@ router.get('/',  async (req, res) => {
     
     // get posts data
     const postData = await Post.findAll({
-      order: [['title', 'ASC']],
+      order: [['date_created', 'DESC']],
       include:[{
         model: Comment,
         order: [['date_created', 'ASC']]
