@@ -3,6 +3,7 @@
     
 ## Table of Contents
 * [description](description)
+* [screengrab](screengrab)
 * [link](#link)
 * [contributors](#contributors)
 * [contact](#contact)
@@ -17,6 +18,11 @@
     * Welcome and Congrats on being an official BEER BUDDY!
     
     * DEMO VIDEO: https://drive.google.com/file/d/1pbE4Nxt5z3gJ02Q32Ld_sUXEM6exunsB/view
+
+    ## Screengrab
+    ![Screen Shot](img/screen1.png)
+
+    ![Screen Shot](img/screen2.png)
 
     ## Link
     * CLICK HERE  --> https://stark-ridge-23340.herokuapp.com/ TO BECOME A BEER BUDDY NOW!
