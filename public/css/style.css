@@ -1,27 +1,41 @@
 body {
   background-color: rgb(36, 34, 34);
 }
+
 .navbar {
   background-color: rgb(255, 176, 17);
 }
+
 #title {
   color: rgb(255, 197, 81);
   margin-bottom: 30px;
+}
+
+#loginTitle{
+  color: rgb(253, 189, 60);
+}
+
+#map {
+  height: 100%;
 }
 
 .blog {
   color: white;
   text-align: center;
 }
+
 .checklist {
   color: white;
 }
+
 .landing{
 text-align: center;
 }
+
 .landingBox{
 color:rgb(255, 195, 75);
 }
+
 .post {
   background-color: rgb(255, 176, 17);
   border-radius: 5px;
@@ -30,6 +44,7 @@ color:rgb(255, 195, 75);
   color: rgb(0, 0, 0);
   padding: 15px;
 }
+
 .comment {
   background-color: rgb(218, 186, 124);
   border-radius: 5px;
@@ -37,20 +52,24 @@ color:rgb(255, 195, 75);
   margin-top: 5px;
   padding: 15px;
 }
+
 .addComment {
   color: white;
   text-decoration: underline;
   margin-left: 49px;
 }
+
 .homepageMedia {
   max-width: 70%;
   max-height: 50%;
   margin-left: 48px;
 }
+
 .field{
 margin-right:15px;
 margin-left:15px;
 }
+
 .navbar2 {
   background-color: rgb(255, 187, 51);
   margin-bottom: auto;
@@ -59,6 +78,7 @@ margin-left:15px;
   height: 35px;
   width: 100%;
 }
+
 .border {
   border-style: solid;
   border-width: 1px;
@@ -66,43 +86,53 @@ margin-left:15px;
   border-radius: 8px;
   height: auto;
 }
+
 .profileInfo {
   color: white;
   text-align: center;
 }
+
 .label{
  color: rgb(255, 176, 17)
 }
+
 hr {
   height: 1px;
   border-width: 0;
   background-color: rgb(255, 255, 255);
 }
+
 .pic {
   margin-left: 75px;
 }
+
 .beerLogoImg{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 30%;
+  width: 20%;
+  
 }
+
 .userName {
   color: white;
   text-align: center;
   margin-left: 50px;
   margin-top: 20px;
 }
+
 .favBeers {
   color: white;
   margin-left: 50px;
   margin-top: 15px;
 }
+
 .favBeersItems {
   color: white;
   margin-left: 50px;
   text-align: left;
 }
+
 .beerList {
   margin-left: auto;
   margin-right: auto;
@@ -112,6 +142,7 @@ hr {
   color: black;
   text-decoration-line: underline;
 }
+
 .profileInfo {
   color: white;
   text-align: center;
@@ -125,6 +156,7 @@ hr {
   color: white;
   text-align: center;
 }
+
 .tabs {
   color: white;
 }
@@ -132,20 +164,24 @@ hr {
 .hidden {
   display: none;
 }
+
 .leaderboard {
   color: white;
   text-align: center;
 }
+
 #topDog {
   color: rgb(255, 176, 17);
   font-weight: bolder;
   font-size: xx-large;
 }
+
 #secondDog {
   color: rgb(255, 243, 139);
   font-weight: bold;
   font-size: x-large;
 }
+
 #thirdDog {
   color: rgb(255, 250, 202);
   font-size: larger;
@@ -155,16 +191,17 @@ hr {
 
 .nearBeer {
   color: rgb(255, 176, 17);
-  text-align:left;
-  
+  text-align:left; 
 }
+
 .beerMap {
- 
   width: 50%;
 }
+
 .button {
   background-color: rgb(255, 176, 17);
 }
+
 .loginTitle {
   color: rgb(255, 176, 17);
   text-align: center;

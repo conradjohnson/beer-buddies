@@ -44,6 +44,14 @@ module.exports = {
   setVariable: (varName, varValue, options)=>{
     options.data.root[varName] = varValue;
   },
-
+  is_generic_pic: (imgfile)=>{
+    if (imgfile === 'profile.png'){
+      return true;
+    }
+    else {
+      return false;
+    }
+  },
+  
   
 };

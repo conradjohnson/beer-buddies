@@ -1,10 +1,12 @@
+
+
 <h1 class="is-size-1 has-text-centered pt-4 loginTitle">
   {{post.title}}
 </h1>
 <h3 class="is-size-4 has-text-centered loginTitle">{{post.author}}</h3>
 <hr />
 
-<div class="post p-5">
+<div class="post p-5 is-fullheight">
   {{post.body}}
 </div>
 <hr />
@@ -17,18 +19,18 @@
 {{/each}}
 
 {{#if logged_in}}
-
-<form class="media mt-1">
+<form class="new-comment-form">
+<article class="media mt-1">
   <div class="media-content">
     <div class="field">
       <p class="control">
-        <input type="hidden" id="post-id" value="{{post.id}}" />
-        <textarea class="textarea" id="comment-body" placeholder="Add a comment..."></textarea>
+        <textarea class="textarea"  id="comment-body" name="comment-body" placeholder="Add a comment..."></textarea>
       </p>
     </div>
     <nav class="level">
       <div class="level-left">
         <div class="level-item">
+          <input type="hidden" id="post-id" value="{{post.id}}" />
           <button type="submit" class="button">Submit</button>
         </div>
       </div>
@@ -37,8 +39,10 @@
       </div>
     </nav>
   </div>
+</article>
 </form>
 
+<script src="/js/post.js"></script>
 {{else}}
   <a href="/login">Log in or sign up to comment</a>
 {{/if}}
