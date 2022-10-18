@@ -17,8 +17,8 @@ const loginFormHandler = async (event) => {
       // If successful, redirect the browser to the profile page
       document.location.replace('/dashboard');
     } else {
-      alert('here!');
-      alert(response.statusText);
+      
+      //alert(response.statusText);
     }
   }
 };
@@ -34,21 +34,23 @@ const signupFormHandler = async (event) => {
   const city = document.querySelector('#city-signup').value.trim();
   const state = document.querySelector('#state-signup').value.trim();
   const zip = document.querySelector('#zip-signup').value.trim();
+  const lat = document.querySelector('#lat-signup').value.trim();
+  const lon = document.querySelector('#lon-signup').value.trim();
 
-  alert(` address1 ${address1}
-          city ${city}
-          state ${state}
-          zip ${zip}`);
+  // alert(` address1 ${address1}
+  //         city ${city}
+  //         state ${state}
+  //         zip ${zip}`);
 
   console.log(name+email+password+username);
   if (name && email && password && username) {
     console.log('all passed!')
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ name, email, username, password, address1, city, state, zip }),
+      body: JSON.stringify({ name, email, username, password, address1, city, state, zip, lat, lon }),
       headers: { 'Content-Type': 'application/json' },
     });
-    console.log('here again!')
+   
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
@@ -79,6 +81,8 @@ function initAutocomplete(){
     cityField = document.querySelector("#city-signup");
     stateField = document.querySelector("#state-signup");
     zipField = document.querySelector("#zip-signup");
+    latField = document.querySelector("#lat-signup");
+    lonField = document.querySelector("#lon-signup");
 
     autocomplete = new google.maps.places.Autocomplete(
         document.getElementById('autocomplete'),
@@ -98,13 +102,20 @@ function onPlaceChanged(){
     let city = "";
     let st = "";
     let zip = "";
+    let lat = "";
+    let lon = "";
 
-    alert('changed!');
+    
     if (!place.geometry){
       alert("notgeo");
         //User didn't select a place, reset field
         document.getElementById('autocomplete').placeholder = 'Enter location';
     } else{
+      latlonString = String(place.geometry.location);
+      const myArray = latlonString.split(",");
+      lat = myArray[0].trim().substring(1);
+      lon = myArray[1].trim();
+      lon = lon.substring(0, lon.length - 1);
       for (const component of place.address_components ) {
       const componentType = component.types[0];
       switch (componentType) {
@@ -122,6 +133,7 @@ function onPlaceChanged(){
           zip = `${component.long_name}`;
           break;
         }
+       
         case "locality": {
           city = `${component.long_name}`;
           break;
@@ -140,6 +152,8 @@ function onPlaceChanged(){
     cityField.value = city;
     stateField.value = st;
     zipField.value = zip;
+    latField.value = lat;
+    lonField.value = lon;
 
     }
 }

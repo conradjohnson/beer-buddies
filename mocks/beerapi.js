@@ -1,6 +1,4 @@
 
-// const xml2json = require("./xmltojson");
-
 
 const api_key = 'dd603422fbd601248edcb80d08b961b9';
 // http://beermapping.com/webservice/locquery/API_KEY/piece
@@ -27,4 +25,3 @@ async function getBeerLocs(city_st){
 
 //getBeerLocs("los angeles,ca");
 getBeerLocs("dallas,tx");
-getBeerLocs("plano,tx");
