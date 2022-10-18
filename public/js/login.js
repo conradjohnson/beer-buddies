@@ -17,8 +17,8 @@ const loginFormHandler = async (event) => {
       // If successful, redirect the browser to the profile page
       document.location.replace('/dashboard');
     } else {
-      alert('here!');
-      alert(response.statusText);
+      
+      //alert(response.statusText);
     }
   }
 };
@@ -37,10 +37,10 @@ const signupFormHandler = async (event) => {
   const lat = document.querySelector('#lat-signup').value.trim();
   const lon = document.querySelector('#lon-signup').value.trim();
 
-  alert(` address1 ${address1}
-          city ${city}
-          state ${state}
-          zip ${zip}`);
+  // alert(` address1 ${address1}
+  //         city ${city}
+  //         state ${state}
+  //         zip ${zip}`);
 
   console.log(name+email+password+username);
   if (name && email && password && username) {
@@ -50,7 +50,7 @@ const signupFormHandler = async (event) => {
       body: JSON.stringify({ name, email, username, password, address1, city, state, zip, lat, lon }),
       headers: { 'Content-Type': 'application/json' },
     });
-    console.log('here again!')
+   
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
@@ -105,7 +105,7 @@ function onPlaceChanged(){
     let lat = "";
     let lon = "";
 
-    alert('changed!');
+    
     if (!place.geometry){
       alert("notgeo");
         //User didn't select a place, reset field
